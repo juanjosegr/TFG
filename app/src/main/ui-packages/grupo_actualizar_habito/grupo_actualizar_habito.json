@@ -1,0 +1,255 @@
+{
+  "name": "grupo_actualizar_habito",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "33:321",
+    "version": "5750914274",
+    "component-id": "ca854ccef971254ebcecaf5a0bf155551b644d9a"
+  },
+  "default": "GrupoActualizarHabito",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "actualizairBtn"
+      },
+      {
+        "type": "group",
+        "id": "borrarBtn"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 8"
+      },
+      {
+        "type": "text",
+        "id": "Actualizar"
+      },
+      {
+        "type": "vector",
+        "id": "rtt8"
+      },
+      {
+        "type": "text",
+        "id": "borrarBtnhabito"
+      }
+    ],
+    "modes": {
+      "GrupoActualizarHabito": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": {
+              "left": 9.0,
+              "right": 9.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "actualizairBtn",
+              "borrarBtn"
+            ],
+            "item-spacing": 140.0,
+            "clip-content": false
+          },
+          {
+            "id": "actualizairBtn",
+            "border-radius": 42.0,
+            "tap-handler": "$onBtnAnadir",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 8",
+              "Actualizar"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "borrarBtn",
+            "border-radius": 42.0,
+            "tap-handler": "$onBtnAnadir",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "rtt8",
+              "borrarBtnhabito"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 8",
+            "border-radius": 42.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "vector-content": "rectangle_8.svg"
+          },
+          {
+            "id": "Actualizar",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -2.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 78.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Actualizar",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
+          },
+          {
+            "id": "rtt8",
+            "border-radius": 42.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "vector-content": "rtt8.svg"
+          },
+          {
+            "id": "borrarBtnhabito",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -2.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 78.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Borrar",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onBtnAnadir": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "GrupoActualizarHabito",
+      "size": {
+        "width": 346.0,
+        "height": 35.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

@@ -1,0 +1,95 @@
+{
+  "name": "group_diary",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "33:216",
+    "version": "5750914274",
+    "component-id": "b669cb14096ced4227110d99e80a1291c5a3537a"
+  },
+  "default": "GroupDiary",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 10"
+      },
+      {
+        "type": "image",
+        "id": "Journal"
+      }
+    ],
+    "modes": {
+      "GroupDiary": {
+        "rules": [
+          {
+            "id": "top_level",
+            "tap-handler": "$on GroupDiary tapped",
+            "is-structured": false,
+            "children": [
+              "Rectangle 10",
+              "Journal"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 10",
+            "border-radius": 70.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_10.svg"
+          },
+          {
+            "id": "Journal",
+            "margin": 25.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "image-content": "journal.png",
+            "scale": "contain"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "on GroupDiary tapped": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "GroupDiary",
+      "size": {
+        "width": 140.0,
+        "height": 140.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

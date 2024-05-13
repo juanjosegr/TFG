@@ -1,0 +1,105 @@
+{
+  "name": "like_reload",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "39:202",
+    "version": "5750914274",
+    "component-id": "3f728871aef3abefa2ab09bf91953b3c17e91b60"
+  },
+  "default": "likeReload",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Vector"
+      },
+      {
+        "type": "vector",
+        "id": "Vector1"
+      }
+    ],
+    "modes": {
+      "likeReload": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Vector",
+              "Vector1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Vector",
+            "margin": {
+              "top": 1.0,
+              "right": 173.0
+            },
+            "tap-handler": "$LikeSave",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "vector.svg"
+          },
+          {
+            "id": "Vector1",
+            "margin": {
+              "left": 175.0
+            },
+            "tap-handler": "$ReloadOn",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "vector1.svg"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "LikeSave": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "ReloadOn": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "likeReload",
+      "size": {
+        "width": 205.0,
+        "height": 32.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

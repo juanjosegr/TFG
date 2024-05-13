@@ -1,0 +1,95 @@
+{
+  "name": "arriba_aleatorio",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "33:356",
+    "version": "5750914274",
+    "component-id": "2fe71324477ccd2c20873bad6f52ef923349348d"
+  },
+  "default": "ArribaAleatorio",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "FraseAleatoria"
+      }
+    ],
+    "modes": {
+      "ArribaAleatorio": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": 14.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "children": [
+              "FraseAleatoria"
+            ],
+            "item-spacing": 153.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.04,
+              "value": 0.19607843137254902
+            },
+            "clip-content": false
+          },
+          {
+            "id": "FraseAleatoria",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 219.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Frase aleatoria",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "ArribaAleatorio",
+      "size": {
+        "width": 430.0,
+        "height": 72.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

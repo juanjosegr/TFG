@@ -1,0 +1,145 @@
+{
+  "name": "menu_abajo_default",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "42:340",
+    "version": "5750914274",
+    "component-id": "431168476172d2fa1c4c8a68399fb12361719a3c"
+  },
+  "default": "MenuAbajoDefault",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "Dog House"
+      },
+      {
+        "type": "image",
+        "id": "Plus"
+      },
+      {
+        "type": "image",
+        "id": "User"
+      }
+    ],
+    "modes": {
+      "MenuAbajoDefault": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": {
+              "left": 10.0,
+              "right": 10.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "Dog House",
+              "Plus",
+              "User"
+            ],
+            "item-spacing": 109.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.04,
+              "value": 0.19607843137254902
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Dog House",
+            "tap-handler": "$onHomeGo1",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 55.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 68.0
+              }
+            },
+            "image-content": "dog_house.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Plus",
+            "tap-handler": "$onAddTap1",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 62.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 68.0
+              }
+            },
+            "image-content": "plus.png",
+            "scale": "contain"
+          },
+          {
+            "id": "User",
+            "tap-handler": "$onUsergo1",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 62.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 68.0
+              }
+            },
+            "image-content": "user.png",
+            "scale": "contain"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onHomeGo1": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onAddTap1": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onUsergo1": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "MenuAbajoDefault",
+      "size": {
+        "width": 417.0,
+        "height": 68.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

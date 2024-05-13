@@ -1,0 +1,96 @@
+{
+  "name": "arriba_gym",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "33:355",
+    "version": "5750914274",
+    "component-id": "89bcbbf4e9ef6e90d926ba5786c33dacae51fb23"
+  },
+  "default": "ArribaGym",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Gym"
+      }
+    ],
+    "modes": {
+      "ArribaGym": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": 14.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "children": [
+              "Gym"
+            ],
+            "item-spacing": 153.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.04,
+              "value": 0.19607843137254902
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Gym",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 131.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Rutinas",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "ArribaGym",
+      "size": {
+        "width": 430.0,
+        "height": 68.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

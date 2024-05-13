@@ -1,0 +1,538 @@
+{
+  "name": "agrupados",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "80:296",
+    "version": "5751451942",
+    "component-id": "8b293513d2a0b50950c8761788f0e49d3d2d1d10"
+  },
+  "default": "agrupados",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "GroupAleatory"
+      },
+      {
+        "type": "group",
+        "id": "GroupTraining"
+      },
+      {
+        "type": "group",
+        "id": "GroupCalendary"
+      },
+      {
+        "type": "group",
+        "id": "GroupHabits"
+      },
+      {
+        "type": "group",
+        "id": "GroupDiary"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 13"
+      },
+      {
+        "type": "image",
+        "id": "Decision"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 14"
+      },
+      {
+        "type": "image",
+        "id": "Weightlifting"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 15"
+      },
+      {
+        "type": "image",
+        "id": "Google Calendar"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 11"
+      },
+      {
+        "type": "image",
+        "id": "No Celery"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 10"
+      },
+      {
+        "type": "image",
+        "id": "Journal"
+      }
+    ],
+    "modes": {
+      "agrupados": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "GroupAleatory",
+              "GroupTraining",
+              "GroupCalendary",
+              "GroupHabits",
+              "GroupDiary"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "GroupAleatory",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 103.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 191.0
+              }
+            },
+            "tap-handler": "$onGroupAleatory",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 13",
+              "Decision"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "GroupTraining",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -103.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 191.0
+              }
+            },
+            "tap-handler": "$onGroupTraining",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 14",
+              "Weightlifting"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "GroupCalendary",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -2.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "tap-handler": "$onGroupCalendary",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 15",
+              "Google Calendar"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "GroupHabits",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 103.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -191.0
+              }
+            },
+            "tap-handler": "$onGroupHabits",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 11",
+              "No Celery"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "GroupDiary",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -103.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -189.0
+              }
+            },
+            "tap-handler": "$onGroupDiary",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 10",
+              "Journal"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 13",
+            "border-radius": 70.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "vector-content": "rectangle_13.svg"
+          },
+          {
+            "id": "Decision",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              }
+            },
+            "image-content": "decision.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Rectangle 14",
+            "border-radius": 70.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "vector-content": "rectangle_14.svg"
+          },
+          {
+            "id": "Weightlifting",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -4.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              }
+            },
+            "image-content": "weightlifting.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Rectangle 15",
+            "border-radius": 70.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "vector-content": "rectangle_15.svg"
+          },
+          {
+            "id": "Google Calendar",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              }
+            },
+            "image-content": "google_calendar.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Rectangle 11",
+            "border-radius": 70.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "vector-content": "rectangle_11.svg"
+          },
+          {
+            "id": "No Celery",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              }
+            },
+            "image-content": "no_celery.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Rectangle 10",
+            "border-radius": 70.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 140.0
+              }
+            },
+            "vector-content": "rectangle_10.svg"
+          },
+          {
+            "id": "Journal",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              }
+            },
+            "image-content": "journal.png",
+            "scale": "contain"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onGroupAleatory": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onGroupTraining": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onGroupCalendary": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onGroupHabits": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onGroupDiary": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "agrupados",
+      "size": {
+        "width": 346.0,
+        "height": 522.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

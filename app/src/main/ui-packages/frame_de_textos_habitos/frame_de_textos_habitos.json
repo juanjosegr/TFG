@@ -1,0 +1,120 @@
+{
+  "name": "frame_de_textos_habitos",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "33:272",
+    "version": "5750914274",
+    "component-id": "a0160006c8c19ad8d63ba9dbba5565c053dec1ae"
+  },
+  "default": "FrameDeTextosHabitos",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "textosGrupos"
+      }
+    ],
+    "modes": {
+      "FrameDeTextosHabitos": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": 16.0,
+            "border-radius": 34.0,
+            "tap-handler": "$onFrameTexto",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "main-axis-align": "start",
+            "children": [
+              "textosGrupos"
+            ],
+            "item-spacing": 6.0,
+            "background-color": "$FrameDeTextos background color"
+          },
+          {
+            "id": "textosGrupos",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 160.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": "$textosGrupos color",
+            "text-content": "$TextosNota",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 12.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "FrameDeTextos background color": {
+      "data-type": "color",
+      "required": false,
+      "description": ""
+    },
+    "onFrameTexto": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "TextosNota": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "textosGrupos color": {
+      "data-type": "color",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "FrameDeTextosHabitos",
+      "size": {
+        "width": 192.0,
+        "height": 62.0
+      },
+      "parameters": {
+        "FrameDeTextos background color": {
+          "alpha": 1.0,
+          "hue": 0.0,
+          "saturation": 0.0,
+          "value": 1.0
+        },
+        "TextosNota": "Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto ...",
+        "textosGrupos color": {
+          "alpha": 1.0,
+          "hue": 0.0,
+          "saturation": 0.0,
+          "value": 0.0
+        }
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

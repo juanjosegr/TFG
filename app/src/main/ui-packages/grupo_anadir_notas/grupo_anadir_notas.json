@@ -1,0 +1,511 @@
+{
+  "name": "grupo_anadir_notas",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "4:363",
+    "version": "5750914274",
+    "component-id": "b96408d87497824549a6c025f73624bb63871937"
+  },
+  "default": "GrupoAnadirNotas",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "top_level_synth"
+      },
+      {
+        "type": "group",
+        "id": "cambioColor"
+      },
+      {
+        "type": "group",
+        "id": "anadirBtn"
+      },
+      {
+        "type": "text",
+        "id": "Nueva nota."
+      },
+      {
+        "type": "group",
+        "id": "TituloNotaGrupo"
+      },
+      {
+        "type": "group",
+        "id": "TextoNotaGrupo"
+      },
+      {
+        "type": "vector",
+        "id": "TituloNota"
+      },
+      {
+        "type": "text",
+        "id": "Introduce el título..."
+      },
+      {
+        "type": "vector",
+        "id": "CampoTexot"
+      },
+      {
+        "type": "text",
+        "id": "textoNota"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle9"
+      },
+      {
+        "type": "text",
+        "id": "textcolor"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 8"
+      },
+      {
+        "type": "text",
+        "id": "Añadir"
+      }
+    ],
+    "modes": {
+      "GrupoAnadirNotas": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "top_level_synth",
+              "cambioColor",
+              "anadirBtn"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "top_level_synth",
+            "opacity": 100.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "main-axis-align": "start",
+            "children": [
+              "Nueva nota.",
+              "TituloNotaGrupo",
+              "TextoNotaGrupo"
+            ],
+            "item-spacing": 12.0,
+            "clip-content": false
+          },
+          {
+            "id": "cambioColor",
+            "border-radius": 42.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 228.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 298.0
+              }
+            },
+            "tap-handler": "$onBtnAnadir",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle9",
+              "textcolor"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "anadirBtn",
+            "border-radius": 42.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 1.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 298.0
+              }
+            },
+            "tap-handler": "$onBtnAnadir",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 8",
+              "Añadir"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Nueva nota.",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 95.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 30.073421478271484
+              }
+            },
+            "text-content": "Nueva nota.",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
+          },
+          {
+            "id": "TituloNotaGrupo",
+            "tap-handler": "$onTituloNota",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 385.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 30.073421478271484
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "TituloNota",
+              "Introduce el título..."
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "TextoNotaGrupo",
+            "tap-handler": "$onTextNota",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 385.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 203.8531494140625
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "CampoTexot",
+              "textoNota"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "TituloNota",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 385.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 30.073421478271484
+              }
+            },
+            "vector-content": "titulo_nota.svg"
+          },
+          {
+            "id": "Introduce el título...",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -105.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -0.00001430511474609375
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 157.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 15.036710739135742
+              }
+            },
+            "text-content": "$TituloText",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
+          },
+          {
+            "id": "CampoTexot",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 385.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 203.8531494140625
+              }
+            },
+            "vector-content": "campo_texot.svg"
+          },
+          {
+            "id": "textoNota",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -0.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.5122146606445312
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 368.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 196.6824493408203
+              }
+            },
+            "text-content": "$textoNota",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
+          },
+          {
+            "id": "Rectangle9",
+            "border-radius": 42.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "tap-handler": "$onBtnCmbiocolor",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "vector-content": "rectangle9.svg"
+          },
+          {
+            "id": "textcolor",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -2.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 78.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Elegir color",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
+          },
+          {
+            "id": "Rectangle 8",
+            "border-radius": 42.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 94.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "vector-content": "rectangle_8.svg"
+          },
+          {
+            "id": "Añadir",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -2.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 78.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Añadir",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onBtnAnadir": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onTituloNota": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onTextNota": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "TituloText": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "textoNota": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "onBtnCmbiocolor": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "GrupoAnadirNotas",
+      "size": {
+        "width": 385.0,
+        "height": 342.0
+      },
+      "parameters": {
+        "TituloText": "Introduce el título...",
+        "textoNota": "Introduce la nota..."
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

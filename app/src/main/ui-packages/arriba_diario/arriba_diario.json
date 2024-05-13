@@ -1,0 +1,120 @@
+{
+  "name": "arriba_diario",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "1:42",
+    "version": "5750914274",
+    "component-id": "05b7ba925ffb75b27c079c4c6a72e3d0cc414c22"
+  },
+  "default": "ArribaDiario",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Diario"
+      },
+      {
+        "type": "group",
+        "id": "Frame 2"
+      }
+    ],
+    "modes": {
+      "ArribaDiario": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": {
+              "left": 7.0,
+              "top": 5.0,
+              "right": 7.0,
+              "bottom": 5.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "children": [
+              "Diario",
+              "Frame 2"
+            ],
+            "item-spacing": 146.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.04,
+              "value": 0.19607843137254902
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Diario",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 109.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Diario",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          },
+          {
+            "id": "Frame 2",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 154.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 56.0
+              }
+            },
+            "is-structured": false,
+            "clip-content": false
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "ArribaDiario",
+      "size": {
+        "width": 423.0,
+        "height": 66.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

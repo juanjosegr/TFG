@@ -1,0 +1,131 @@
+{
+  "name": "hacer_hecho",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "4:600",
+    "version": "5750914274",
+    "component-id": "d9722aeb4a98a61c65d68cf93b2ebff1be6975d4"
+  },
+  "default": "HacerHecho",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Por hacer"
+      },
+      {
+        "type": "text",
+        "id": "Completado"
+      }
+    ],
+    "modes": {
+      "HacerHecho": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": {
+              "left": 11.0,
+              "top": 13.0,
+              "right": 11.0,
+              "bottom": 13.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "Por hacer",
+              "Completado"
+            ],
+            "item-spacing": 83.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Por hacer",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 139.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 48.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 1.0,
+              "value": 1.0
+            },
+            "text-content": "Por hacer",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          },
+          {
+            "id": "Completado",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 185.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 48.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 111.76470588235294,
+              "saturation": 1.0,
+              "value": 1.0
+            },
+            "text-content": " Completado",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "HacerHecho",
+      "size": {
+        "width": 429.0,
+        "height": 74.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

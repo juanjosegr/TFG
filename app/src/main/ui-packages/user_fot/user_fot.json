@@ -1,0 +1,107 @@
+{
+  "name": "user_fot",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "8:1203",
+    "version": "5750914274",
+    "component-id": "911fa99104b751fac327ff35316cb953ce236f26"
+  },
+  "default": "UserFot",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Cambiar foto perfil"
+      },
+      {
+        "type": "vector",
+        "id": "Foto"
+      }
+    ],
+    "modes": {
+      "UserFot": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Cambiar foto perfil",
+              "Foto"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Cambiar foto perfil",
+            "margin": {
+              "left": 16.0,
+              "top": 138.0,
+              "right": 13.0
+            },
+            "tap-handler": "$onCambioFoto",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "text-content": "Cambiar foto perfil",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 16.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          },
+          {
+            "id": "Foto",
+            "margin": {
+              "bottom": 17.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "foto.svg"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onCambioFoto": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "UserFot",
+      "size": {
+        "width": 140.0,
+        "height": 152.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

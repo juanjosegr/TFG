@@ -1,0 +1,281 @@
+{
+  "name": "grupo_login",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "1:30",
+    "version": "5750914274",
+    "component-id": "5b3b69c17e4c21f4fdbfdec6b5f9271866807ec6"
+  },
+  "default": "grupoLogin",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Conectar"
+      },
+      {
+        "type": "group",
+        "id": "Frame 2"
+      },
+      {
+        "type": "group",
+        "id": "Frame 3"
+      },
+      {
+        "type": "group",
+        "id": "BtnLogin"
+      },
+      {
+        "type": "text",
+        "id": "¿No estas registrado.?"
+      },
+      {
+        "type": "text",
+        "id": "Registrate"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle6"
+      },
+      {
+        "type": "text",
+        "id": "ConectarbtnLogin"
+      }
+    ],
+    "modes": {
+      "grupoLogin": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": {
+              "left": 70.0,
+              "top": 25.0,
+              "right": 70.0,
+              "bottom": 30.0
+            },
+            "arrangement": "row",
+            "children": [
+              "Conectar",
+              "Frame 2",
+              "Frame 3",
+              "BtnLogin",
+              "¿No estas registrado.?",
+              "Registrate"
+            ],
+            "item-spacing": 8.0,
+            "clip-content": false
+          },
+          {
+            "id": "Conectar",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 202.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 51.0
+              }
+            },
+            "font-weight": 800.0,
+            "text-content": "Conectar",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "text-size": 32.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter"
+          },
+          {
+            "id": "Frame 2",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 245.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 56.0
+              }
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Frame 3",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 245.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 56.0
+              }
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "clip-content": false
+          },
+          {
+            "id": "BtnLogin",
+            "border-radius": 72.0,
+            "tap-handler": "$onBtnLogin",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 245.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 36.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle6",
+              "ConectarbtnLogin"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "¿No estas registrado.?",
+            "text-content": "¿No estas registrado.? ",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 12.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter"
+          },
+          {
+            "id": "Registrate",
+            "tap-handler": "$onRegistedTap",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 63.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "font-weight": 600.0,
+            "text-content": "Registrate",
+            "italic": true,
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "text-size": 12.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter",
+            "underline": true
+          },
+          {
+            "id": "Rectangle6",
+            "border-radius": 72.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 245.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 36.0
+              }
+            },
+            "vector-content": "rectangle6.svg"
+          },
+          {
+            "id": "ConectarbtnLogin",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -3.0246124267578125
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0000762939453125
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 202.65432739257812
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 28.421051025390625
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Conectar",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "text-size": 12.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onBtnLogin": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onRegistedTap": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "grupoLogin",
+      "size": {
+        "width": 385.0,
+        "height": 353.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

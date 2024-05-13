@@ -1,0 +1,96 @@
+{
+  "name": "inicio_login",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "3:252",
+    "version": "5750914274",
+    "component-id": "d8e0d3ae25c00e03a4c9fa17c21869fad8213fe2"
+  },
+  "default": "InicioLogin",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Inicio"
+      }
+    ],
+    "modes": {
+      "InicioLogin": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": 14.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "children": [
+              "Inicio"
+            ],
+            "item-spacing": 153.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.04,
+              "value": 0.19607843137254902
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Inicio",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 109.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Inicio",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "InicioLogin",
+      "size": {
+        "width": 430.0,
+        "height": 68.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

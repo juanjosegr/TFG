@@ -1,0 +1,100 @@
+{
+  "name": "menu_abajo_variant4",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "42:330",
+    "version": "5750914274",
+    "component-id": "7c47814b0db0a8d2faa76325d75f7c248330832e"
+  },
+  "default": "MenuAbajoVariant4",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "Dog House"
+      },
+      {
+        "type": "adin_component",
+        "id": "UserModifierBtns",
+        "key": "user_modifier_btns"
+      }
+    ],
+    "modes": {
+      "MenuAbajoVariant4": {
+        "rules": [
+          {
+            "id": "top_level",
+            "arrangement": "row",
+            "children": [
+              "Dog House",
+              "UserModifierBtns"
+            ],
+            "item-spacing": 74.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.04,
+              "value": 0.19607843137254902
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Dog House",
+            "tap-handler": "$onHomeGo4",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 55.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 56.66666793823242
+              }
+            },
+            "image-content": "dog_house.png",
+            "scale": "contain"
+          },
+          {
+            "id": "UserModifierBtns",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 258.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onHomeGo4": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "MenuAbajoVariant4",
+      "size": {
+        "width": 417.0,
+        "height": 68.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

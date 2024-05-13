@@ -1,0 +1,123 @@
+{
+  "name": "property_1_variant2",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "4:570",
+    "version": "5744269916",
+    "component-id": "83fab4134d8157c7301bfd738672c901d692e88c"
+  },
+  "default": "Property 1=Variant2",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "Dog House"
+      },
+      {
+        "type": "vector",
+        "id": "Plus"
+      },
+      {
+        "type": "image",
+        "id": "User"
+      }
+    ],
+    "modes": {
+      "Property 1=Variant2": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": {
+              "left": 10.0,
+              "right": 10.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "Dog House",
+              "Plus",
+              "User"
+            ],
+            "item-spacing": 109.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.04,
+              "value": 0.19607843137254902
+            },
+            "clip-content": false
+          },
+          {
+            "id": "Dog House",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 55.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 68.0
+              }
+            },
+            "image-content": "dog_house.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Plus",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 62.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 68.0
+              }
+            }
+          },
+          {
+            "id": "User",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 62.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 68.0
+              }
+            },
+            "image-content": "user.png",
+            "scale": "contain"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Property 1=Variant2",
+      "size": {
+        "width": 417.0,
+        "height": 68.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

@@ -1,0 +1,311 @@
+{
+  "name": "usuer_camps",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "6:834",
+    "version": "5750914274",
+    "component-id": "b1a06c3e36b913ccff93a39b1e3c2ab44003a9aa"
+  },
+  "default": "UsuerCamps",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "top_level_synth"
+      },
+      {
+        "type": "group",
+        "id": "Frame 9"
+      },
+      {
+        "type": "text",
+        "id": "Nombre"
+      },
+      {
+        "type": "group",
+        "id": "Frame 5"
+      },
+      {
+        "type": "text",
+        "id": "Apellidos"
+      },
+      {
+        "type": "group",
+        "id": "Frame 6"
+      },
+      {
+        "type": "text",
+        "id": "Emial"
+      },
+      {
+        "type": "group",
+        "id": "Frame 7"
+      },
+      {
+        "type": "text",
+        "id": "Contraseña"
+      },
+      {
+        "type": "group",
+        "id": "Frame 8"
+      },
+      {
+        "type": "text",
+        "id": "Repite Contraseña"
+      }
+    ],
+    "modes": {
+      "UsuerCamps": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "top_level_synth",
+              "Frame 9"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "top_level_synth",
+            "opacity": 100.0,
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "children": [
+              "Nombre",
+              "Frame 5",
+              "Apellidos",
+              "Frame 6",
+              "Emial",
+              "Frame 7",
+              "Contraseña",
+              "Frame 8",
+              "Repite Contraseña"
+            ],
+            "item-spacing": 15.0,
+            "clip-content": false
+          },
+          {
+            "id": "Frame 9",
+            "margin": {
+              "left": 80.0,
+              "top": 347.2010498046875,
+              "bottom": 9.917564392089844
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Nombre",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 59.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.52808952331543
+              }
+            },
+            "text-content": "Nombre",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 16.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          },
+          {
+            "id": "Frame 5",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 210.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 64.0450668334961
+              }
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Apellidos",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 65.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.52808952331543
+              }
+            },
+            "text-content": "Apellidos",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 16.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          },
+          {
+            "id": "Frame 6",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 210.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 64.0450668334961
+              }
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Emial",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 62.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.52808952331543
+              }
+            },
+            "text-content": "Emial",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 16.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          },
+          {
+            "id": "Frame 7",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 210.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 64.0450668334961
+              }
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Contraseña",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 65.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.52808952331543
+              }
+            },
+            "text-content": "Contraseña",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 16.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          },
+          {
+            "id": "Frame 8",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 210.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 64.0450668334961
+              }
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Repite Contraseña",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 65.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 33.07303237915039
+              }
+            },
+            "text-content": "Repite Contraseña",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 16.0,
+            "line-height": 1.10498046875,
+            "typeface": "Lancelot"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "UsuerCamps",
+      "size": {
+        "width": 290.0,
+        "height": 437.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

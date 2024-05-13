@@ -1,0 +1,193 @@
+{
+  "name": "frame_de_textos",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "1:12",
+    "version": "5750914274",
+    "component-id": "31f1e30c14fd218a0d5dac032c31db1e5bd1dde7"
+  },
+  "default": "FrameDeTextos",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "TítuloTexto"
+      },
+      {
+        "type": "vector",
+        "id": "lineatextos"
+      },
+      {
+        "type": "text",
+        "id": "textosGrupos"
+      }
+    ],
+    "modes": {
+      "FrameDeTextos": {
+        "rules": [
+          {
+            "id": "top_level",
+            "padding": 16.0,
+            "border-radius": 34.0,
+            "tap-handler": "$onFrameTexto",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "main-axis-align": "start",
+            "children": [
+              "TítuloTexto",
+              "lineatextos",
+              "textosGrupos"
+            ],
+            "item-spacing": 6.0,
+            "background-color": "$FrameDeTextos background color"
+          },
+          {
+            "id": "TítuloTexto",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 160.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "font-weight": 700.0,
+            "color": "$TítuloTexto color",
+            "text-content": "$TituloNota",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 16.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter"
+          },
+          {
+            "id": "lineatextos",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": -1.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 0.0
+              }
+            },
+            "vector-content": "lineatextos.svg"
+          },
+          {
+            "id": "textosGrupos",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 160.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": "$textosGrupos color",
+            "text-content": "$TextosNota",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 12.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "FrameDeTextos background color": {
+      "data-type": "color",
+      "required": false,
+      "description": ""
+    },
+    "onFrameTexto": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "TituloNota": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "TítuloTexto color": {
+      "data-type": "color",
+      "required": false,
+      "description": ""
+    },
+    "TextosNota": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "textosGrupos color": {
+      "data-type": "color",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "FrameDeTextos",
+      "size": {
+        "width": 192.0,
+        "height": 198.0
+      },
+      "parameters": {
+        "FrameDeTextos background color": {
+          "alpha": 1.0,
+          "hue": 0.0,
+          "saturation": 0.0,
+          "value": 1.0
+        },
+        "TituloNota": "TítuloTexto1",
+        "TítuloTexto color": {
+          "alpha": 1.0,
+          "hue": 0.0,
+          "saturation": 0.0,
+          "value": 0.0
+        },
+        "TextosNota": "Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...Texto grupo 1...",
+        "textosGrupos color": {
+          "alpha": 1.0,
+          "hue": 0.0,
+          "saturation": 0.0,
+          "value": 0.0
+        }
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

@@ -1,0 +1,100 @@
+{
+  "name": "group_training",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "Xqee7TpvESHYkzkyBX5Ndk",
+    "node": "33:220",
+    "version": "5750914274",
+    "component-id": "c9667dae2391bac6c121098fc4a6e6d08cda68e4"
+  },
+  "default": "GroupTraining",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 14"
+      },
+      {
+        "type": "image",
+        "id": "Weightlifting"
+      }
+    ],
+    "modes": {
+      "GroupTraining": {
+        "rules": [
+          {
+            "id": "top_level",
+            "tap-handler": "$on GroupTraining tapped",
+            "is-structured": false,
+            "children": [
+              "Rectangle 14",
+              "Weightlifting"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 14",
+            "border-radius": 70.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_14.svg"
+          },
+          {
+            "id": "Weightlifting",
+            "margin": {
+              "left": 21.0,
+              "top": 25.0,
+              "right": 29.0,
+              "bottom": 25.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "image-content": "weightlifting.png",
+            "scale": "contain"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "on GroupTraining tapped": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "GroupTraining",
+      "size": {
+        "width": 140.0,
+        "height": 140.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
