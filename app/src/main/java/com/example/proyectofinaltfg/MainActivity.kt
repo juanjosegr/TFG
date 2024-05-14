@@ -14,6 +14,7 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.LoginRegisterVM
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.PreferenceManager
 import com.example.proyectofinaltfg.ui.theme.ProyectoFinalTFGTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
         val updateNoteVM: UpdateNoteVM by viewModels()
 
         super.onCreate(savedInstanceState)
-
+        PreferenceManager.init(this)
         enableEdgeToEdge()
         setContent {
             window.navigationBarColor = getColor(R.color.black)

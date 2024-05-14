@@ -1,5 +1,7 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
@@ -199,6 +201,27 @@ class LoginRegisterVM : ViewModel() {
         password = ""
         userLoginName = ""
     }
+
+    var recordarUsuario by mutableStateOf(false)
+
+    init {
+        recordarUsuario = PreferenceManager.getRememberUser()
+        if (recordarUsuario) {
+            email = PreferenceManager.getEmail()
+            password = PreferenceManager.getPassword()
+        }
+    }
+
+    fun guardarPreferencias() {
+        PreferenceManager.setRememberUser(recordarUsuario)
+        if (recordarUsuario) {
+            PreferenceManager.setEmail(email)
+            PreferenceManager.setPassword(password)
+        } else {
+            PreferenceManager.setEmail("")
+            PreferenceManager.setPassword("")
+        }
+    }
 }
 
 enum class InvalidError {
@@ -207,4 +230,36 @@ enum class InvalidError {
     NO_UPPERCASE,
     NO_DIGITS,
     NO_SPECIAL_CHARACTERS,
+}
+object PreferenceManager {
+    private const val PREF_NAME = "login_prefs"
+    private lateinit var sharedPreferences: SharedPreferences
+
+    fun init(context: Context) {
+        sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    }
+
+    fun setRememberUser(value: Boolean) {
+        sharedPreferences.edit().putBoolean("remember_user", value).apply()
+    }
+
+    fun getRememberUser(): Boolean {
+        return sharedPreferences.getBoolean("remember_user", false)
+    }
+
+    fun setEmail(email: String) {
+        sharedPreferences.edit().putString("email", email).apply()
+    }
+
+    fun getEmail(): String {
+        return sharedPreferences.getString("email", "") ?: ""
+    }
+
+    fun setPassword(password: String) {
+        sharedPreferences.edit().putString("password", password).apply()
+    }
+
+    fun getPassword(): String {
+        return sharedPreferences.getString("password", "") ?: ""
+    }
 }

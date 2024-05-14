@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -49,9 +50,16 @@ fun GrupoLoginNuevo(
     onRegistedTap: () -> Unit = {},
     loginScreenVM: LoginRegisterVM,
     passwordVisible: MutableState<Boolean>,
-    recordarUsuario: MutableState<Boolean> = remember { mutableStateOf(false) } // Nuevo estado para recordar usuario
+    recordarUsuario: MutableState<Boolean> = remember { mutableStateOf(false) }
 
 ) {
+
+    DisposableEffect(Unit) {
+        onDispose {
+            loginScreenVM.guardarPreferencias()
+        }
+    }
+
     val visualTranformaction = if (passwordVisible.value)
         VisualTransformation.None
     else PasswordVisualTransformation()
@@ -123,9 +131,10 @@ fun GrupoLoginNuevo(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Checkbox(
-                checked = recordarUsuario.value,
+                checked = loginScreenVM.recordarUsuario,
                 onCheckedChange = { newValue ->
-                    recordarUsuario.value = newValue
+                    loginScreenVM.recordarUsuario = newValue
+                    loginScreenVM.guardarPreferencias()
                 }
             )
             Text(
