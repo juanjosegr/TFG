@@ -13,6 +13,7 @@ import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.LoginRegisterVM
 import com.example.proyectofinaltfg.arriba.Arriba
 
+
 @Composable
 fun LoginScreen(navController: NavController, loginScreenVM: LoginRegisterVM) {
     Box(modifier = Modifier.fillMaxSize()) {
