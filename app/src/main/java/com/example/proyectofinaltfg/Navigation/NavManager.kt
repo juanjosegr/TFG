@@ -12,10 +12,10 @@ import com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryPackage.DiarioView.Diari
 import com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryPackage.DiaryUpdateView.DiaryUpdateScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.view.GymView.GymScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsView.HabtisScreen
+import com.example.proyectofinaltfg.TFGAPP.ui.view.PrincipalView.PrincipalMenuScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.view.UserPackage.LoginView.LoginScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.view.UserPackage.RegisterView.RegisterScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.view.UserPackage.UserView.UserScreen
-import com.example.proyectofinaltfg.TFGAPP.ui.view.MenuPrincipalView.PrincipalMenuScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
@@ -31,8 +31,8 @@ fun NavManager(
     val navController = rememberNavController()
 
     NavHost(
-        //navController = navController, startDestination = Routes.loginScreen.routes
-        navController = navController, startDestination = Routes.principalMenuScreen.routes
+        navController = navController, startDestination = Routes.loginScreen.routes
+        //        navController = navController, startDestination = Routes.PrincipalMenuScreen.routes
     ) {
         composable(Routes.loginScreen.routes) {
             LoginScreen(navController, loginScreenVM)

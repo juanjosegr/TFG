@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.MenuPrincipalView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.PrincipalView
 
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxWidth
