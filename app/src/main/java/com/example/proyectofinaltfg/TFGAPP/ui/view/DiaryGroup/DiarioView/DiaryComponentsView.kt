@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryPackage.DiarioView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryGroup.DiarioView
 
 
 import android.util.Log

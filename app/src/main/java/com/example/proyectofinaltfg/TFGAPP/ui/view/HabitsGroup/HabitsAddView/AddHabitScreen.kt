@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsGroup.HabitsAddView
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,12 +14,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
-import com.example.proyectofinaltfg.menuabajodefault.MenuAbajoDefault
+import com.example.proyectofinaltfg.grupoanadirhbito.GrupoAnadirHBito
+import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
-fun HabtisScreen(
-    navController: NavController
-) {
+fun AddHabitScreen(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -27,6 +26,7 @@ fun HabtisScreen(
                 .fillMaxSize(),
         ) {
             ArribaHabitos()
+            GrupoAnadirHBito()
         }
         Box(
             modifier = Modifier
@@ -34,11 +34,9 @@ fun HabtisScreen(
                 .fillMaxWidth()
                 .offset(y = (-46).dp)
         ) {
-            MenuAbajoDefault(
-                onHomeGo1 = { navController.navigate(Routes.principalMenuScreen.routes) },
-                onAddTap1 = {  },
-                onUsergo1 = { navController.navigate(Routes.userScren.routes) }
-            )
+            MenuAbajoVariant2(
+                onGoHome2 = { navController.navigate(Routes.principalMenuScreen.routes) },
+                onUserGo2 = { navController.navigate(Routes.userScren.routes) })
         }
     }
 }

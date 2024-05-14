@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.UserPackage.RegisterView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.LoginView
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,10 +14,7 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.LoginRegisterVM
 import com.example.proyectofinaltfg.arriba.Arriba
 
 @Composable
-fun RegisterScreen(
-    navController: NavController,
-    loginScreenVM: LoginRegisterVM
-) {
+fun LoginScreen(navController: NavController, loginScreenVM: LoginRegisterVM) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -25,21 +22,19 @@ fun RegisterScreen(
                 .fillMaxSize(),
         ) {
             Arriba()
-            GrupoRegistroNuevo(
+            GrupoLoginNuevo(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .weight(0.5f),
                 loginScreenVM = loginScreenVM,
-                onBtnAcept = {
-                    loginScreenVM.createUser { navController.navigate(Routes.loginScreen.routes) }
+                onBtnLogin = { loginScreenVM.login { navController.navigate(Routes.principalMenuScreen.routes) } },
+                onRegistedTap = {
+                    loginScreenVM.resetFields()
+                    navController.navigate(Routes.registerScreen.routes)
                 },
                 passwordVisible = loginScreenVM.passwordVisible
             )
-            LlamadaShowAlert(
-                loginScreenVM,
-                loginScreenVM.textError,
-                loginScreenVM.casoErrorAcierto
-            )
+            LlamadaShowAler(loginScreenVM, loginScreenVM.textError, loginScreenVM.casoErrorAcierto)
         }
     }
 }

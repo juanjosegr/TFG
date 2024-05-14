@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.UserPackage.UserView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsGroup.HabitsUpdate
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,12 +13,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
-import com.example.proyectofinaltfg.menuabajovariant3.MenuAbajoVariant3
-import com.example.proyectofinaltfg.usertop.UserTop
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
+import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
+import com.example.proyectofinaltfg.framedetextoshabitos.FrameDeTextosHabitos
+import com.example.proyectofinaltfg.grupoactualizarhabito.GrupoActualizarHabito
+import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
-fun UserScreen(
-    navController: NavController
+fun HabitUpdateScreen(
+    navController: NavController,
+    updateHabitVM: UpdateHabitVM
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -26,7 +30,9 @@ fun UserScreen(
                 .background(Color.White)
                 .fillMaxSize(),
         ) {
-            UserTop()
+            ArribaHabitos()
+            FrameDeTextosHabitos()
+            GrupoActualizarHabito()
         }
         Box(
             modifier = Modifier
@@ -34,10 +40,9 @@ fun UserScreen(
                 .fillMaxWidth()
                 .offset(y = (-46).dp)
         ) {
-            MenuAbajoVariant3(
-                onHomeGo3 = { navController.navigate(Routes.principalMenuScreen.routes) },
-                onBtnDesconectar = { }
-            )
+            MenuAbajoVariant2(
+                onGoHome2 = { navController.navigate(Routes.principalMenuScreen.routes) },
+                onUserGo2 = { navController.navigate(Routes.userScren.routes) })
         }
     }
 }

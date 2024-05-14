@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryPackage.DiaryUpdateView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryGroup.DiaryUpdateView
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

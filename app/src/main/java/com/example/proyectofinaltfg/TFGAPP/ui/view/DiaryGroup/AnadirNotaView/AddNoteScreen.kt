@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryPackage.AnadirNotaView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryGroup.AnadirNotaView
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

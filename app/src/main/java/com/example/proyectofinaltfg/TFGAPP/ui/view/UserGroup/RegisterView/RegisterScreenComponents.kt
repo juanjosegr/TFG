@@ -1,4 +1,4 @@
-package com.example.proyectofinaltfg.TFGAPP.ui.view.UserPackage.RegisterView
+package com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.RegisterView
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.shape.RoundedCornerShape

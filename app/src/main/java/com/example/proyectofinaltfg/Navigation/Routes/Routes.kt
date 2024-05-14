@@ -12,4 +12,6 @@ sealed class Routes (val routes: String) {
     object calendaryScreen : Routes("CalendaryScreen")
     object gymScreen : Routes("GymScreen")
     object habtisScreen : Routes("HabtisScreen")
+    object addHabitScreen : Routes("AddHabitScreen")
+    object habitUpdateScreen : Routes("HabitUpdateScreen")
 }
