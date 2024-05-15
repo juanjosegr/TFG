@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "Xqee7TpvESHYkzkyBX5Ndk",
     "node": "33:321",
-    "version": "5771063399",
+    "version": "5772374651",
     "component-id": "ca854ccef971254ebcecaf5a0bf155551b644d9a"
   },
   "default": "GrupoActualizarHabito",
@@ -70,7 +70,6 @@
           {
             "id": "actualizairBtn",
             "border-radius": 42.0,
-            "tap-handler": "$onBtnAnadir",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -91,7 +90,6 @@
           {
             "id": "borrarBtn",
             "border-radius": 42.0,
-            "tap-handler": "$onBtnAnadir",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -122,6 +120,7 @@
                 "offset": 0.0
               }
             },
+            "tap-handler": "$onBtnActu",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -182,7 +181,7 @@
                 "offset": 0.0
               }
             },
-            "tap-handler": "$onBrnDelete",
+            "tap-handler": "$onBtnDelete",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -235,12 +234,12 @@
     }
   },
   "parameters": {
-    "onBtnAnadir": {
+    "onBtnActu": {
       "data-type": "void-callback",
       "required": false,
       "description": ""
     },
-    "onBrnDelete": {
+    "onBtnDelete": {
       "data-type": "void-callback",
       "required": false,
       "description": ""

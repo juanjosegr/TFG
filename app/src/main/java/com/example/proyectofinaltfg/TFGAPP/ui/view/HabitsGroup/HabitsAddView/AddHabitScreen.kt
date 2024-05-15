@@ -15,7 +15,6 @@ import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
-import com.example.proyectofinaltfg.grupoanadirhbito.GrupoAnadirHBito
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
@@ -27,7 +26,7 @@ fun AddHabitScreen(navController: NavController, addHabitVM: AddHabitVM) {
                 .fillMaxSize(),
         ) {
             ArribaHabitos()
-            AddNoteComponents(addHabitVM)
+            AddHabitComponents(addHabitVM)
         }
         Box(
             modifier = Modifier

@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
+import com.example.proyectofinaltfg.grupoactualizarhabito.GrupoActualizarHabito
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
@@ -30,9 +31,16 @@ fun HabitUpdateScreen(
         ) {
             ArribaHabitos()
             ShowHabitComponent(updateHabitVM)
-            GrupoActualizarHabitoMod(
-                onBtnAnadir = { updateHabitVM.updateHabitVM(updateHabitVM.idHabit) },
-                onBrnDelete = { updateHabitVM.deleteHabitVM(updateHabitVM.idHabit) }
+            GrupoActualizarHabito(
+                onBtnActu = { updateHabitVM.updateHabitVM(updateHabitVM.idHabit) },
+                onBtnDelete = { updateHabitVM.deleteHabitVM(updateHabitVM.idHabit)
+                }
+            )
+            LlamadaShowAler(
+                navController,
+                updateHabitVM,
+                updateHabitVM.textError,
+                updateHabitVM.casoErrorAcierto,
             )
         }
         Box(

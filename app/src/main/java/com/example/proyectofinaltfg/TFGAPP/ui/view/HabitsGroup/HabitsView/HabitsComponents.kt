@@ -177,7 +177,8 @@ fun CustomTextBox(
                 .fillMaxSize()
                 .clickable(onClick = {
                     updateHabitVM.changeTextHabit(text)
-                    updateHabitVM.allDateObtains(text, idHabit,)
+                    val nuevaHechaHacer = if (updateHabitVM.hechaHacer == "hecha") "por hacer" else "hecha"
+                    updateHabitVM.allDateObtains(text, idHabit,nuevaHechaHacer)
                     navController.navigate(Routes.habitUpdateScreen.routes)
                 }),
             backgroundColor = backgroundColor,

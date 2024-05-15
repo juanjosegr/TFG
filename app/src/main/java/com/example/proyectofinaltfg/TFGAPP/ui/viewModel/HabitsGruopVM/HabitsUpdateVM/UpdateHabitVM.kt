@@ -15,8 +15,6 @@ class UpdateHabitVM : ViewModel() {
 
     private val firestore = Firebase.firestore
 
-    var titleHabit by mutableStateOf("")
-        private set
     var textHabit by mutableStateOf("")
         private set
 
@@ -38,10 +36,12 @@ class UpdateHabitVM : ViewModel() {
 
     fun allDateObtains(
         text: String,
-        idHabit: String
+        idHabit: String,
+        hechaHacer: String
     ) {
         this.textHabit = text
         this.idHabit = idHabit
+        this.hechaHacer = hechaHacer
         Log.d("Obtección de datos",  text  + idHabit + hechaHacer)
         updateState(idHabit)
     }
@@ -52,8 +52,7 @@ class UpdateHabitVM : ViewModel() {
             try {
                 if (idHabit.isNotEmpty()) {
                     val editHabit = hashMapOf(
-                        "title" to titleHabit,
-                        "note" to textHabit,
+                        "Habit" to textHabit,
                         "hecha_hacer" to hechaHacer
                     )
                     // DCS - Utiliza la instancia de Firestore para actualizar la info de una nota por su id
@@ -95,12 +94,11 @@ class UpdateHabitVM : ViewModel() {
             try {
                 if (idHabit.isNotEmpty()) {
                     val editHabit = hashMapOf(
-                        "title" to titleHabit,
-                        "note" to textHabit,
+                        "Habit" to textHabit,
                         "hecha_hacer" to hechaHacer
                     )
                     // Utiliza la instancia de Firestore para actualizar la información de una nota por su id
-                    firestore.collection("Notes").document(idHabit)
+                    firestore.collection("Habits").document(idHabit)
                         .update(editHabit as Map<String, Any>)
                         .addOnSuccessListener {
                             Log.d(

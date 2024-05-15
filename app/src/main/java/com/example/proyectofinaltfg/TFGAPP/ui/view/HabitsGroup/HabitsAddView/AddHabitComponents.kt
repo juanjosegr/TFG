@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +29,7 @@ fun LlamadaShowAler(addHabitVM: AddHabitVM, text: String, caso: String) {
     }
 }
 @Composable
-fun AddNoteComponents(
+fun AddHabitComponents(
     addHabitVM: AddHabitVM
 ) {
     Column(modifier = Modifier.padding(16.dp)) {
