@@ -13,6 +13,7 @@ import com.example.proyectofinaltfg.Navigation.NavManager
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.DragDrop.DragDropViewModel
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.HabitScreenVM
@@ -30,6 +31,7 @@ class MainActivity : ComponentActivity() {
         val habitScreenVM: HabitScreenVM by viewModels()
         val addHabitVM: AddHabitVM by viewModels()
         val updateHabitVM: UpdateHabitVM by viewModels()
+        val dragDropViewModel : DragDropViewModel by viewModels()
 
         super.onCreate(savedInstanceState)
         PreferenceManager.init(this)
@@ -42,7 +44,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM)
+                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM, dragDropViewModel)
 
                 }
             }

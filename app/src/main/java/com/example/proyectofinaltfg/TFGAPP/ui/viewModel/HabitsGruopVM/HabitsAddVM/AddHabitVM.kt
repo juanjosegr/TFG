@@ -14,6 +14,7 @@ import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Calendar
+import java.util.UUID
 
 class AddHabitVM : ViewModel() {
 
@@ -45,9 +46,11 @@ class AddHabitVM : ViewModel() {
                 casoErrorAcierto = "Error"
             } else {
                 try {
+                    val idHabit = UUID.randomUUID().toString()
                     val newHabit = hashMapOf(
                         "Habit" to textHabit,
                         "hecha_hacer" to "por hacer",
+                        "idHabit" to idHabit,
                         "fechaCreacion" to Calendar.getInstance().time,
                         "emailUser" to email.toString()
                     )

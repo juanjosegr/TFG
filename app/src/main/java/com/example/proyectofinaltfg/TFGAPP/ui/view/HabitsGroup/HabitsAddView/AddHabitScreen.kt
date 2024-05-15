@@ -13,12 +13,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
 import com.example.proyectofinaltfg.grupoanadirhbito.GrupoAnadirHBito
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
-fun AddHabitScreen(navController: NavController) {
+fun AddHabitScreen(navController: NavController, addHabitVM: AddHabitVM) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -26,7 +27,7 @@ fun AddHabitScreen(navController: NavController) {
                 .fillMaxSize(),
         ) {
             ArribaHabitos()
-            GrupoAnadirHBito()
+            AddNoteComponents(addHabitVM)
         }
         Box(
             modifier = Modifier

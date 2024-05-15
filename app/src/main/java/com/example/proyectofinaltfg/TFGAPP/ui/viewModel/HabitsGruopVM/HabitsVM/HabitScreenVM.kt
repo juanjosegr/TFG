@@ -12,24 +12,36 @@ class HabitScreenVM : ViewModel() {
 
     private val firestore = FirebaseFirestore.getInstance()
 
-    private val _HabitsData = MutableStateFlow<List<HabitModel>>(emptyList())
-    val habitsData: StateFlow<List<HabitModel>> = _HabitsData
+    private val _habitsData = MutableStateFlow<List<HabitModel>>(emptyList())
+    val habitsData: StateFlow<List<HabitModel>> = _habitsData
+
+    init {
+        fetchNotes()
+    }
 
     fun fetchNotes() {
         firestore.collection("Habits")
             .orderBy("fechaCreacion", Query.Direction.ASCENDING)
             .get()
             .addOnSuccessListener { querySnapshot ->
-                val documents = mutableListOf<HabitModel>()
-                for (document in querySnapshot) {
-                    val myDocument =
-                        document.toObject(HabitModel::class.java).copy(idNote = document.id)
-                    documents.add(myDocument)
+                val documents = querySnapshot.documents.map { document ->
+                    document.toObject(HabitModel::class.java)!!.copy(idHabit = document.id)
                 }
+                _habitsData.value = documents
             }
             .addOnFailureListener { e ->
                 Log.e("Firebase", "Error fetching notes: $e")
             }
     }
 
+    fun updateHabitStatus(habitId: String, newStatus: String) {
+        firestore.collection("Habits").document(habitId)
+            .update("hecha_hacer", newStatus)
+            .addOnSuccessListener {
+                fetchNotes()
+            }
+            .addOnFailureListener { e ->
+                Log.e("Firebase", "Error updating habit status: $e")
+            }
+    }
 }

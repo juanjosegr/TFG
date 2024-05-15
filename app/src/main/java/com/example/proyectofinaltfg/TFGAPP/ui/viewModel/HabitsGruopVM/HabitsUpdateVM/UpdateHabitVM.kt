@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.Firebase
@@ -21,7 +20,7 @@ class UpdateHabitVM : ViewModel() {
     var textHabit by mutableStateOf("")
         private set
 
-    var idDoc by mutableStateOf("")
+    var idHabit by mutableStateOf("")
         private set
     var showAlert by mutableStateOf(false)
         private set
@@ -32,7 +31,6 @@ class UpdateHabitVM : ViewModel() {
 
     var hechaHacer by mutableStateOf("")
 
-
     fun changeTextHabit(text: String) {
         this.textHabit = text
         Log.d("Texto", text)
@@ -40,29 +38,26 @@ class UpdateHabitVM : ViewModel() {
 
     fun allDateObtains(
         text: String,
-        backgroundColor: Color,
-        idDoc: String,
-        hechaHacer: String
+        idHabit: String
     ) {
         this.textHabit = text
-        this.idDoc = idDoc
-        this.hechaHacer = hechaHacer
-        Log.d("Obtección de datos",  text + backgroundColor + idDoc + hechaHacer)
-        updateState(idDoc)
+        this.idHabit = idHabit
+        Log.d("Obtección de datos",  text  + idHabit + hechaHacer)
+        updateState(idHabit)
     }
 
-    fun updateHabit(idDoc: String) {
-        Log.d("UpdateNoteComponent", "ID de la nota antes de la actualización: $idDoc")
+    fun updateHabitVM(idHabit: String) {
+        Log.d("UpdateNoteComponent", "ID de la nota antes de la actualización: $idHabit")
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                if (idDoc.isNotEmpty()) {
+                if (idHabit.isNotEmpty()) {
                     val editHabit = hashMapOf(
                         "title" to titleHabit,
                         "note" to textHabit,
                         "hecha_hacer" to hechaHacer
                     )
                     // DCS - Utiliza la instancia de Firestore para actualizar la info de una nota por su id
-                    firestore.collection("Habits").document(idDoc)
+                    firestore.collection("Habits").document(idHabit)
                         .update(editHabit as Map<String, Any>)
                         .addOnSuccessListener {
                             Log.d(
@@ -94,18 +89,18 @@ class UpdateHabitVM : ViewModel() {
         }
     }
 
-    fun updateState(idDoc: String) {
-        Log.d("UpdateNoteComponent", "ID de la nota antes de la actualización: $idDoc")
+    fun updateState(idHabit: String) {
+        Log.d("UpdateNoteComponent", "ID de la nota antes de la actualización: $idHabit")
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                if (idDoc.isNotEmpty()) {
+                if (idHabit.isNotEmpty()) {
                     val editHabit = hashMapOf(
                         "title" to titleHabit,
                         "note" to textHabit,
                         "hecha_hacer" to hechaHacer
                     )
                     // Utiliza la instancia de Firestore para actualizar la información de una nota por su id
-                    firestore.collection("Notes").document(idDoc)
+                    firestore.collection("Notes").document(idHabit)
                         .update(editHabit as Map<String, Any>)
                         .addOnSuccessListener {
                             Log.d(
@@ -128,11 +123,11 @@ class UpdateHabitVM : ViewModel() {
         }
     }
 
-    fun deleteHabit(idDoc: String) {
+    fun deleteHabitVM(idHabit: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 // DCS - Utiliza la instancia de Firestore para eliminar una nota por su id
-                firestore.collection("Habits").document(idDoc)
+                firestore.collection("Habits").document(idHabit)
                     .delete()
                     .addOnSuccessListener {
                         showAlert = true

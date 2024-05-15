@@ -15,14 +15,12 @@ import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
-import com.example.proyectofinaltfg.framedetextoshabitos.FrameDeTextosHabitos
-import com.example.proyectofinaltfg.grupoactualizarhabito.GrupoActualizarHabito
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
 fun HabitUpdateScreen(
     navController: NavController,
-    updateHabitVM: UpdateHabitVM
+    updateHabitVM: UpdateHabitVM,
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -31,8 +29,11 @@ fun HabitUpdateScreen(
                 .fillMaxSize(),
         ) {
             ArribaHabitos()
-            FrameDeTextosHabitos()
-            GrupoActualizarHabito()
+            ShowHabitComponent(updateHabitVM)
+            GrupoActualizarHabitoMod(
+                onBtnAnadir = { updateHabitVM.updateHabitVM(updateHabitVM.idHabit) },
+                onBrnDelete = { updateHabitVM.deleteHabitVM(updateHabitVM.idHabit) }
+            )
         }
         Box(
             modifier = Modifier

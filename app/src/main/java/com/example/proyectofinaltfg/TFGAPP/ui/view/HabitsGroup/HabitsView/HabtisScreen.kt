@@ -9,12 +9,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.DragDrop.DragDropViewModel
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.HabitScreenVM
@@ -27,8 +29,12 @@ fun HabtisScreen(
     navController: NavController,
     habitScreenVM: HabitScreenVM,
     updateHabitVM: UpdateHabitVM,
-    addHabitVM: AddHabitVM
+    dragDropViewModel: DragDropViewModel
 ) {
+
+    LaunchedEffect(Unit) {
+        habitScreenVM.fetchNotes()
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -46,7 +52,7 @@ fun HabtisScreen(
                         reverseScrolling = true
                     )
             ) {
-                ColumnasSeparadas(navController, habitScreenVM, updateHabitVM, addHabitVM)
+                ColumnasSeparadas(navController, habitScreenVM, updateHabitVM, dragDropViewModel)
             }
         }
         Box(
