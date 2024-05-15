@@ -15,6 +15,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
@@ -64,8 +66,10 @@ fun ShowHabitComponent(
         OutlinedTextField(
             value = updateHabitsVM.textHabit,
             onValueChange = { updateHabitsVM.changeTextHabit(it) },
-            label = { Text("Nota") },
-            modifier = Modifier.height(200.dp)
+            label = { Text("Hábito") },
+            modifier = Modifier
+                .height(80.dp)
+                .padding(top = 25.dp)
         )
     }
 }

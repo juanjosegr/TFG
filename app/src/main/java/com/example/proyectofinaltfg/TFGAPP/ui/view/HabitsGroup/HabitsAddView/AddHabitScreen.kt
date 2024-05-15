@@ -1,11 +1,13 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsGroup.HabitsAddView
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,8 +27,20 @@ fun AddHabitScreen(navController: NavController, addHabitVM: AddHabitVM) {
                 .background(Color.White)
                 .fillMaxSize(),
         ) {
-            ArribaHabitos()
-            AddHabitComponents(addHabitVM)
+            Box {
+                ArribaHabitos()
+            }
+            Column(
+                modifier = Modifier
+                    .background(Color.White)
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp)
+                    .offset(y = (-100).dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                AddHabitComponents(addHabitVM)
+            }
         }
         Box(
             modifier = Modifier
@@ -35,7 +49,7 @@ fun AddHabitScreen(navController: NavController, addHabitVM: AddHabitVM) {
                 .offset(y = (-46).dp)
         ) {
             MenuAbajoVariant2(
-                onGoHome2 = { navController.navigate(Routes.principalMenuScreen.routes) },
+                onGoHome2 = { navController.navigate(Routes.habtisScreen.routes) },
                 onUserGo2 = { navController.navigate(Routes.userScren.routes) })
         }
     }

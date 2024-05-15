@@ -1,6 +1,7 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.ApiView
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,7 +27,20 @@ fun ApiScreen(
                 .background(Color.White)
                 .fillMaxSize(),
         ) {
-        ArribaAleatorio()
+            Box {
+                ArribaAleatorio()
+            }
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .offset(y = (-50).dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+
+            }
+
         }
         Box(
             modifier = Modifier
@@ -34,11 +48,11 @@ fun ApiScreen(
                 .fillMaxWidth()
                 .offset(y = (-46).dp)
         ) {
-        MenuAbajoVariant5(
-            onHomeGo5 = { navController.navigate(Routes.principalMenuScreen.routes) },
-            onLikeBtn = { },
-            onUserGo5 = { navController.navigate(Routes.userScren.routes) }
-        )
+            MenuAbajoVariant5(
+                onHomeGo5 = { navController.navigate(Routes.principalMenuScreen.routes) },
+                onLikeBtn = { },
+                onUserGo5 = { navController.navigate(Routes.userScren.routes) }
+            )
         }
     }
 }

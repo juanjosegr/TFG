@@ -65,7 +65,7 @@ fun NavManager(
             DiarioPrincipalScreen(navController, diaryScreenVM, updateNoteVM)
         }
         composable(Routes.anadirScreen.routes) {
-            AddNoteScreen(addNoteVM)
+            AddNoteScreen(addNoteVM,navController)
         }
         composable(Routes.diaryUpdateScren.routes) {
             DiaryUpdateScreen(navController, updateNoteVM)

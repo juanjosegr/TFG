@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -61,7 +62,10 @@ fun UpdateNoteComponent(
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        Row {
+        Row(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+        ) {
             Button(onClick = { updateNoteVM.updateNote(updateNoteVM.idDoc) }) {
                 Text("Aceptar")
             }
@@ -105,6 +109,7 @@ fun UpdateNoteComponent(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.width(225.dp)
+                .offset(x = 15.dp)
         ) {
             Button(onClick = { updateNoteVM.deleteNote(idDoc = updateNoteVM.idDoc) }) {
                 Text("Borrar")
