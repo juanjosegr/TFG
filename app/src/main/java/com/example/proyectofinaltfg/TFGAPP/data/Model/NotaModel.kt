@@ -1,6 +1,7 @@
 package com.example.proyectofinaltfg.TFGAPP.data.Model
 
 import com.example.proyectofinaltfg.ui.theme.*
+import java.util.Date
 
 data class NotaModel(
     val emailUser: String = "",
@@ -8,6 +9,7 @@ data class NotaModel(
     val noteColorIndex: HashMap<String, Any> = hashMapOf(),
     val title: String = "",
     val idNote: String = "",
+    val fechaCreacion: Date = Date()
 
     ){
     companion object{

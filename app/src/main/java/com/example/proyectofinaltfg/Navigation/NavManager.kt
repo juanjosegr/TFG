@@ -1,9 +1,11 @@
 package com.example.proyectofinaltfg.Navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.view.ApiView.ApiScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.view.CalendaryView.CalendaryScreen
@@ -19,6 +21,7 @@ import com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.LoginView.LoginScre
 import com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.RegisterView.RegisterScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.UserView.UserScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
+import com.example.proyectofinaltfg.TFGAPP.ui.view.CalendaryView.CalendaryDestiny
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.DragDrop.DragDropViewModel
@@ -81,6 +84,14 @@ fun NavManager(
         composable(Routes.calendaryScreen.routes) {
             CalendaryScreen(navController)
         }
+        composable(
+            route = "TargetScreen/{date}",
+            arguments = listOf(navArgument("date") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val date = backStackEntry.arguments?.getString("date") ?: ""
+            CalendaryDestiny(navController, date, diaryScreenVM, habitScreenVM)
+        }
+
 
         //Gym
         composable(Routes.gymScreen.routes) {
@@ -98,7 +109,6 @@ fun NavManager(
         composable(Routes.habitUpdateScreen.routes) {
             HabitUpdateScreen(navController,updateHabitVM)
         }
-
 
     }
 }

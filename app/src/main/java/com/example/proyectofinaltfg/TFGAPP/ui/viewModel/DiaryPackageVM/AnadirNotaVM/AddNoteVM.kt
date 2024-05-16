@@ -14,6 +14,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Calendar
 
 class AddNoteVM : ViewModel() {
 
@@ -73,6 +74,7 @@ class AddNoteVM : ViewModel() {
                         "title" to titleNote,
                         "note" to textNote,
                         "noteColorIndex" to noteColorIndex,
+                        "fechaCreacion" to Calendar.getInstance().time,
                         "emailUser" to email.toString()
                     )
                     firestore.collection("Notes")
