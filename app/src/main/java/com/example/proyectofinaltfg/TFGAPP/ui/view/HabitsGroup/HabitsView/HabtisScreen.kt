@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.DragDrop.DragDropViewModel
-import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.HabitScreenVM
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
@@ -33,7 +32,7 @@ fun HabtisScreen(
 ) {
 
     LaunchedEffect(Unit) {
-        habitScreenVM.fetchNotes()
+        habitScreenVM.fetchHabits()
     }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
