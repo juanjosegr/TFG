@@ -15,12 +15,15 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -42,6 +45,9 @@ fun ApiLikeScreen(
 ) {
     val likedCats by apiVM.getLikedCats().collectAsState(initial = emptyList())
     val currentIndex = remember { mutableStateOf(0) }
+    var showAlert by remember { mutableStateOf(false) }
+    var deleteConfirmationDialog by remember { mutableStateOf(false) }
+    fun showDeleteConfirmationDialog() {deleteConfirmationDialog = true}
 
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
@@ -78,11 +84,10 @@ fun ApiLikeScreen(
                 } else {
                     Text("No hay gatos guardados como favoritos.")
                 }
+
                 Row {
                     Dislike(ondislike = {
-                        val currentCat = likedCats[currentIndex.value]
-                        apiVM.deleteCatFromFirestore(currentCat)
-                        currentIndex.value = (currentIndex.value + 1) % likedCats.size
+                        showDeleteConfirmationDialog()
                     })
                     Spacer(modifier = Modifier.width(70.dp))
                     Reload(
@@ -107,5 +112,54 @@ fun ApiLikeScreen(
                 onUserGo = { navController.navigate(Routes.userScren.routes) }
             )
         }
+    }
+
+    if (deleteConfirmationDialog) {
+        AlertDialog(
+            onDismissRequest = {
+                deleteConfirmationDialog = false
+            },
+            title = { Text("¿Estás seguro que deseas borrar este gato?") },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        val currentCat = likedCats[currentIndex.value]
+                        apiVM.deleteCatFromFirestore(currentCat)
+                        showAlert = true
+                        deleteConfirmationDialog = false
+                    }
+                ) {
+                    Text("Sí")
+                }
+            },
+            dismissButton = {
+                Button(
+                    onClick = {
+                        deleteConfirmationDialog = false
+                    }
+                ) {
+                    Text("No")
+                }
+            }
+        )
+    }
+
+    if (showAlert) {
+        AlertDialog(
+            onDismissRequest = {
+                showAlert = false
+            },
+            title = { Text("Gato borrado") },
+            text = { Text("El gato ha sido borrado.") },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showAlert = false
+                    }
+                ) {
+                    Text("Aceptar")
+                }
+            }
+        )
     }
 }
