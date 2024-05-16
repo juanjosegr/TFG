@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "Xqee7TpvESHYkzkyBX5Ndk",
     "node": "42:333",
-    "version": "5753218282",
+    "version": "5780722140",
     "component-id": "2d317c3d46483ef484f8231e7d9efc19e76e1d2f"
   },
   "default": "MenuAbajoVariant3",
@@ -21,9 +21,21 @@
         "id": "Dog House"
       },
       {
+        "type": "group",
+        "id": "actualizairBtn"
+      },
+      {
         "type": "adin_component",
         "id": "BtnDesconectar",
         "key": "btn_desconectar"
+      },
+      {
+        "type": "vector",
+        "id": "rasc2"
+      },
+      {
+        "type": "text",
+        "id": "acrtr"
       }
     ],
     "modes": {
@@ -47,9 +59,10 @@
             "arrangement": "row",
             "children": [
               "Dog House",
+              "actualizairBtn",
               "BtnDesconectar"
             ],
-            "item-spacing": 240.0,
+            "item-spacing": 80.0,
             "background-color": {
               "alpha": 1.0,
               "hue": 0.0,
@@ -64,7 +77,7 @@
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
-                "value": 55.0
+                "value": 65.0
               },
               "height-constraints": {
                 "sizing-mode": "fixed",
@@ -73,6 +86,26 @@
             },
             "image-content": "dog_house.png",
             "scale": "contain"
+          },
+          {
+            "id": "actualizairBtn",
+            "border-radius": 42.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 80.95372772216797
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 35.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "rasc2",
+              "acrtr"
+            ],
+            "clip-content": false
           },
           {
             "id": "BtnDesconectar",
@@ -87,6 +120,45 @@
                 "value": 35.0
               }
             }
+          },
+          {
+            "id": "rasc2",
+            "border-radius": 42.0,
+            "tap-handler": "$OnactuBtn",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rasc2.svg"
+          },
+          {
+            "id": "acrtr",
+            "margin": {
+              "left": 5.167266845703125,
+              "right": 8.612083435058594
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "text-content": "Actualizar",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "line-height": 1.2102272851126534,
+            "typeface": "Inter"
           }
         ]
       }
@@ -99,6 +171,11 @@
       "description": ""
     },
     "onBtnDesconectar": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "OnactuBtn": {
       "data-type": "void-callback",
       "required": false,
       "description": ""

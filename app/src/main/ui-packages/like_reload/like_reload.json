@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "Xqee7TpvESHYkzkyBX5Ndk",
     "node": "39:202",
-    "version": "5750914274",
+    "version": "5782089068",
     "component-id": "3f728871aef3abefa2ab09bf91953b3c17e91b60"
   },
   "default": "likeReload",
@@ -22,7 +22,7 @@
       },
       {
         "type": "vector",
-        "id": "Vector1"
+        "id": "Vectores"
       }
     ],
     "modes": {
@@ -30,49 +30,51 @@
         "rules": [
           {
             "id": "top_level",
-            "is-structured": false,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
             "children": [
               "Vector",
-              "Vector1"
+              "Vectores"
             ],
+            "item-spacing": 143.0,
             "clip-content": false
           },
           {
             "id": "Vector",
-            "margin": {
-              "top": 1.0,
-              "right": 173.0
-            },
             "tap-handler": "$LikeSave",
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "proportional",
-                "value": 1.0
+                "sizing-mode": "fixed",
+                "value": 32.0
               },
               "height-constraints": {
-                "sizing-mode": "proportional",
-                "value": 1.0
+                "sizing-mode": "fixed",
+                "value": 32.0
               }
             },
             "vector-content": "vector.svg"
           },
           {
-            "id": "Vector1",
-            "margin": {
-              "left": 175.0
-            },
+            "id": "Vectores",
             "tap-handler": "$ReloadOn",
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "proportional",
-                "value": 1.0
+                "sizing-mode": "fixed",
+                "value": 32.0
               },
               "height-constraints": {
-                "sizing-mode": "proportional",
-                "value": 1.0
+                "sizing-mode": "fixed",
+                "value": 32.0
               }
             },
-            "vector-content": "vector1.svg"
+            "vector-content": "vectores.svg"
           }
         ]
       }
@@ -94,7 +96,7 @@
     {
       "design": "likeReload",
       "size": {
-        "width": 205.0,
+        "width": 207.0,
         "height": 32.0
       }
     }

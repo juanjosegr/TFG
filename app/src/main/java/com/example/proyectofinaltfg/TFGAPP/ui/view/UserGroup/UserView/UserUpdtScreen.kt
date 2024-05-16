@@ -18,8 +18,9 @@ import com.example.proyectofinaltfg.menuabajovariant3.MenuAbajoVariant3
 import com.example.proyectofinaltfg.userfot.UserFot
 import com.example.proyectofinaltfg.usertop.UserTop
 
+
 @Composable
-fun UserScreen(
+fun UserUpdtScreen(
     navController: NavController
 ) {
     BackHandler {
@@ -44,8 +45,8 @@ fun UserScreen(
                 .offset(y = (-46).dp)
         ) {
             MenuAbajoVariant3(
-                onHomeGo3 = { navController.navigate(Routes.principalMenuScreen.routes) },
-                onBtnDesconectar = { navController.navigate(Routes.loginScreen.routes) },
+                onHomeGo3 = { navController.navigate(Routes.userScren.routes) },
+                onBtnDesconectar = {  },
                 onactuBtn = { }
             )
         }

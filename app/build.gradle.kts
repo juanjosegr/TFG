@@ -102,4 +102,11 @@ dependencies {
     //LifeCycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    implementation(libs.coil.compose) // dependecia para pintar la imagen.
+
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
 }

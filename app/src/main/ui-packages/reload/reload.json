@@ -1,14 +1,14 @@
 {
-  "name": "dislike",
+  "name": "reload",
   "version": 33,
   "source-key": {
     "type": "figma",
     "file": "Xqee7TpvESHYkzkyBX5Ndk",
-    "node": "40:249",
+    "node": "139:233",
     "version": "5782197209",
-    "component-id": "8390e7b3b27958a4cd074319396cc6cd9a1ae5bd"
+    "component-id": "4e3eda1d478d3ef49c17932c10115460c566e375"
   },
-  "default": "dislike",
+  "default": "Reload",
   "design": {
     "atoms": [
       {
@@ -18,16 +18,15 @@
       },
       {
         "type": "vector",
-        "id": "Vector"
+        "id": "reloadInde"
       }
     ],
     "modes": {
-      "dislike": {
+      "Reload": {
         "rules": [
           {
             "id": "top_level",
-            "padding": 1.0,
-            "tap-handler": "$ondislike",
+            "tap-handler": "$onReload",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "shrink"
@@ -36,31 +35,33 @@
                 "sizing-mode": "shrink"
               }
             },
+            "arrangement": "row",
             "children": [
-              "Vector"
+              "reloadInde"
             ],
-            "item-spacing": 10.0
+            "item-spacing": 10.0,
+            "clip-content": false
           },
           {
-            "id": "Vector",
+            "id": "reloadInde",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
-                "value": 29.33333396911621
+                "value": 32.0
               },
               "height-constraints": {
                 "sizing-mode": "fixed",
-                "value": 26.66666603088379
+                "value": 32.0
               }
             },
-            "vector-content": "vector.svg"
+            "vector-content": "reload_inde.svg"
           }
         ]
       }
     }
   },
   "parameters": {
-    "ondislike": {
+    "onReload": {
       "data-type": "void-callback",
       "required": false,
       "description": ""
@@ -68,10 +69,10 @@
   },
   "previews": [
     {
-      "design": "dislike",
+      "design": "Reload",
       "size": {
-        "width": 31.33333396911621,
-        "height": 28.66666603088379
+        "width": 32.0,
+        "height": 32.0
       }
     }
   ],

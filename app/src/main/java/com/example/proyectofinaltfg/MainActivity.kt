@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.proyectofinaltfg.Navigation.NavManager
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.ApiVM.ApiVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.DragDrop.DragDropViewModel
@@ -32,6 +34,7 @@ class MainActivity : ComponentActivity() {
         val addHabitVM: AddHabitVM by viewModels()
         val updateHabitVM: UpdateHabitVM by viewModels()
         val dragDropViewModel : DragDropViewModel by viewModels()
+        val apiVM:ApiVM by viewModels()
 
         super.onCreate(savedInstanceState)
         PreferenceManager.init(this)
@@ -43,9 +46,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
-                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM, dragDropViewModel)
-
+                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM, dragDropViewModel,apiVM)
                 }
             }
         }
