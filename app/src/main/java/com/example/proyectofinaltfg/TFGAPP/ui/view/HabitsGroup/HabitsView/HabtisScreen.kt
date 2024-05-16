@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsGroup.HabitsView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -30,7 +31,9 @@ fun HabtisScreen(
     updateHabitVM: UpdateHabitVM,
     dragDropViewModel: DragDropViewModel
 ) {
-
+    BackHandler {
+        navController.navigate(Routes.principalMenuScreen.routes)
+    }
     LaunchedEffect(Unit) {
         habitScreenVM.fetchHabits()
     }

@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsGroup.HabitsAddView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,6 +22,9 @@ import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
 fun AddHabitScreen(navController: NavController, addHabitVM: AddHabitVM) {
+    BackHandler {
+        navController.navigate(Routes.habtisScreen.routes)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier

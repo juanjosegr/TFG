@@ -1,6 +1,7 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.CalendaryView
 
 import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -40,6 +41,9 @@ fun CalendaryDestiny(
     diaryScreenVM: DiaryScreenVM,
     habitScreenVM: HabitScreenVM
 ) {
+    BackHandler {
+        navController.navigate(Routes.calendaryScreen.routes)
+    }
     val notes by diaryScreenVM.notesData.collectAsState()
     val habits by habitScreenVM.habitsData.collectAsState()
 

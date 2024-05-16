@@ -1,6 +1,7 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryGroup.DiarioView
 
 import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -27,6 +28,9 @@ fun DiarioPrincipalScreen(
     diaryScreenVM: DiaryScreenVM,
     updateNoteVM: UpdateNoteVM
 ) {
+    BackHandler {
+        navController.navigate(Routes.principalMenuScreen.routes)
+    }
     Log.d("Compose", "DiarioPrincipalScreen")
     Box(modifier = Modifier.fillMaxSize()) {
 

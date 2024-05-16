@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.GymView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,9 @@ import com.example.proyectofinaltfg.menuabajodefault.MenuAbajoDefault
 fun GymScreen(
     navController: NavController
 ) {
+    BackHandler {
+        navController.navigate(Routes.principalMenuScreen.routes)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier

@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.RegisterView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,9 @@ fun RegisterScreen(
     navController: NavController,
     loginScreenVM: LoginRegisterVM
 ) {
+    BackHandler {
+        navController.navigate(Routes.loginScreen.routes)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier

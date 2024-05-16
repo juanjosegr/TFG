@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryGroup.AnadirNotaView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,6 +24,9 @@ import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
 fun AddNoteScreen(addNoteVM: AddNoteVM, navController: NavController) {
+    BackHandler {
+        navController.navigate(Routes.diarioScreen.routes)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier

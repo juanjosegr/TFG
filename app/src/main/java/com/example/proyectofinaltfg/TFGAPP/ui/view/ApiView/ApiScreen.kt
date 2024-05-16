@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.ApiView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,6 +22,9 @@ import com.example.proyectofinaltfg.menuabajovariant5.MenuAbajoVariant5
 fun ApiScreen(
     navController: NavController
 ) {
+    BackHandler {
+        navController.navigate(Routes.principalMenuScreen.routes)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier

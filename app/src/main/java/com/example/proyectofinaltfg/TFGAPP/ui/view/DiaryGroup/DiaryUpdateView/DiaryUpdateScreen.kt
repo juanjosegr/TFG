@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.DiaryGroup.DiaryUpdateView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,6 +22,9 @@ import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 
 @Composable
 fun DiaryUpdateScreen(navController: NavController, updateNoteVM: UpdateNoteVM) {
+    BackHandler {
+        navController.navigate(Routes.diarioScreen.routes)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier

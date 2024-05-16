@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.CalendaryView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,6 +31,9 @@ import java.util.Locale
 fun CalendaryScreen(
     navController: NavController
 ) {
+    BackHandler {
+        navController.navigate(Routes.principalMenuScreen.routes)
+    }
     val state = rememberDatePickerState()
     val selectedDate = state.selectedDateMillis?.let { Date(it) }
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())

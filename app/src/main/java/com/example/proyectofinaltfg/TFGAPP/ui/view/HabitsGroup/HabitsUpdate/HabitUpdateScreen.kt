@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.HabitsGroup.HabitsUpdate
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,6 +26,9 @@ fun HabitUpdateScreen(
     navController: NavController,
     updateHabitVM: UpdateHabitVM,
 ) {
+    BackHandler {
+        navController.navigate(Routes.habtisScreen.routes)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
