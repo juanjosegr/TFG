@@ -1,6 +1,7 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.CalendaryView
 
 import android.util.Log
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -24,6 +27,11 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.HabitScreenVM
 import com.example.proyectofinaltfg.arribacalendario.ArribaCalendario
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
+import com.example.proyectofinaltfg.ui.theme.BlueOcean
+import com.example.proyectofinaltfg.ui.theme.LightGreen
+import com.example.proyectofinaltfg.ui.theme.RedOrange
+import com.example.proyectofinaltfg.ui.theme.RedPink
+import com.example.proyectofinaltfg.ui.theme.Violet
 
 @Composable
 fun CalendaryDestiny(
@@ -56,18 +64,42 @@ fun CalendaryDestiny(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
+                    .padding(16.dp)
+                    .verticalScroll(
+                        ScrollState(100000),
+                        enabled = true,
+                        reverseScrolling = true
+                    )
             ) {
                 Text("Notas")
                 notes.forEach { note ->
-                    Text(note.title)
-                    Text(note.note)
+                    val backgroundColor: Color =
+                        when (note.noteColorIndex["value-s-VKNKU"] as? Long) {
+                            -92835718103040 -> RedOrange
+                            -25378210132787200 -> LightGreen
+                            -53606925635420160 -> BlueOcean
+                            -3219709348544512 -> RedPink
+                            -13911192913313792 -> Violet
+                            else -> Color.White
+                        }
+                    CustomNotesBox(
+                        title = note.title,
+                        text = note.note,
+                        backgroundColor = backgroundColor,
+                        titleColor = Color.Black,
+                        textColor = Color.DarkGray
+                    )
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text("Hábitos")
                 habits.forEach { habit ->
-                    Text(habit.Habit)
+                    CustomHabitsBox(
+                        text = habit.Habit,
+                        backgroundColor = LightGreen,
+                        textColor = Color.Black
+                    )
                 }
             }
         }
