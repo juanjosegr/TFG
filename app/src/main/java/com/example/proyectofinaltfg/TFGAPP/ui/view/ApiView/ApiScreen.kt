@@ -80,6 +80,7 @@ fun ApiScreen(
                         likeSave = {
                             viewModel.saveCatToFirestore(cat)
                             showAlert = true
+                            viewModel.reloadCats()
                         },
                         reloadOn = { viewModel.reloadCats() }
                     )

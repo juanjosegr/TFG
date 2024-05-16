@@ -8,6 +8,11 @@ import com.example.proyectofinaltfg.TFGAPP.data.Model.CatResponse
 import com.example.proyectofinaltfg.TFGAPP.data.Retrofit.RetrofitServiceFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
@@ -54,6 +59,44 @@ class ApiVM : ViewModel() {
                     "userEmail" to userEmail
                 )
                 firestore.collection("liked_cats").add(catMap).await()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun getLikedCats(): Flow<List<CatResponse>> = flow {
+        val userEmail = auth.currentUser?.email
+        if (userEmail != null) {
+            val querySnapshot = firestore.collection("liked_cats")
+                .whereEqualTo("userEmail", userEmail)
+                .get()
+                .await()
+
+            val catList = mutableListOf<CatResponse>()
+            for (document in querySnapshot.documents) {
+                val cat = document.toObject<CatResponse>()
+                cat?.let { catList.add(it) }
+            }
+
+            emit(catList)
+        }
+    }.flowOn(Dispatchers.IO)
+
+
+    fun deleteCatFromFirestore(cat: CatResponse) {
+        val userEmail = auth.currentUser?.email
+        viewModelScope.launch {
+            try {
+                val querySnapshot = firestore.collection("liked_cats")
+                    .whereEqualTo("userEmail", userEmail)
+                    .whereEqualTo("id", cat.id)
+                    .get()
+                    .await()
+
+                for (document in querySnapshot.documents) {
+                    document.reference.delete().await()
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
