@@ -90,7 +90,9 @@ fun PrincipalMenuScreen(
                 .offset(y = (-46).dp)
         ) {
             MenuAbajoaVariant2(
-                onUserGo2 = { navController.navigate(Routes.userScren.routes) }
+                onUserGo2 = {
+                    navController.navigate(Routes.userScren.routes)
+                }
             )
         }
     }

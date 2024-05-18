@@ -23,6 +23,7 @@ import com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.RegisterView.Regist
 import com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.UserView.UserScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.view.CalendaryView.CalendaryDestiny
+import com.example.proyectofinaltfg.TFGAPP.ui.view.UserGroup.UserView.UserUpdtScreen
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.ApiVM.ApiVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
@@ -31,6 +32,7 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddV
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.HabitScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.LoginRegisterVM
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.UserProfileVM
 
 @Composable
 fun NavManager(
@@ -43,6 +45,7 @@ fun NavManager(
     habitScreenVM: HabitScreenVM,
     dragDropViewModel: DragDropViewModel,
     apiVM: ApiVM,
+    userProfileVM: UserProfileVM
 ) {
     val navController = rememberNavController()
 
@@ -58,7 +61,10 @@ fun NavManager(
             RegisterScreen(navController, loginScreenVM)
         }
         composable(Routes.userScren.routes) {
-            UserScreen(navController)
+            UserScreen(navController,userProfileVM)
+        }
+        composable(Routes.userUpdtScreen.routes) {
+            UserUpdtScreen(navController,userProfileVM)
         }
 
         //Menu Principal

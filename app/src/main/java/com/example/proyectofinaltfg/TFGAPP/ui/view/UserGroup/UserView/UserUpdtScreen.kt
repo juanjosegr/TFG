@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,17 +17,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.UserProfileVM
 import com.example.proyectofinaltfg.menuabajovariant3.MenuAbajoVariant3
-import com.example.proyectofinaltfg.userfot.UserFot
 import com.example.proyectofinaltfg.usertop.UserTop
 
 
 @Composable
 fun UserUpdtScreen(
-    navController: NavController
+    navController: NavController,
+    userProfileVM: UserProfileVM,
 ) {
     BackHandler {
-        navController.navigate(Routes.principalMenuScreen.routes)
+        navController.navigate(Routes.userScren.routes)
     }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -35,8 +39,7 @@ fun UserUpdtScreen(
             Box {
                 UserTop()
             }
-            UserFot()
-            UsuerCampsMod()
+            ProfileScreen(userProfileVM)
         }
         Box(
             modifier = Modifier
@@ -46,9 +49,37 @@ fun UserUpdtScreen(
         ) {
             MenuAbajoVariant3(
                 onHomeGo3 = { navController.navigate(Routes.userScren.routes) },
-                onBtnDesconectar = {  },
-                onactuBtn = { }
+                onBtnDesconectar = { },
+                onactuBtn = {
+                    userProfileVM.updateUser(
+                        userProfileVM.name,
+                        userProfileVM.userName,
+                        userProfileVM.eemail,
+                        userProfileVM.photoUrl
+                    )
+                }
             )
         }
     }
+
+    if (userProfileVM.showUpdateSuccessAlert) {
+        AlertDialog(
+            onDismissRequest = {
+                userProfileVM.resetUpdateSuccessAlert()
+            },
+            title = { Text(text = "Usuario Actualizado") },
+            text = { Text(text = "Los datos del usuario se han actualizado correctamente.") },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        userProfileVM.resetUpdateSuccessAlert()
+                    }
+                ) {
+                    Text("Aceptar")
+                }
+            }
+        )
+    }
 }
+
+

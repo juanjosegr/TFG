@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "Xqee7TpvESHYkzkyBX5Ndk",
     "node": "6:834",
-    "version": "5750914274",
+    "version": "5793033333",
     "component-id": "b1a06c3e36b913ccff93a39b1e3c2ab44003a9aa"
   },
   "default": "UsuerCamps",
@@ -15,14 +15,6 @@
         "type": "group",
         "id": "top_level",
         "root": "true"
-      },
-      {
-        "type": "group",
-        "id": "top_level_synth"
-      },
-      {
-        "type": "group",
-        "id": "Frame 9"
       },
       {
         "type": "text",
@@ -59,6 +51,10 @@
       {
         "type": "text",
         "id": "Repite Contraseña"
+      },
+      {
+        "type": "group",
+        "id": "Frame 9"
       }
     ],
     "modes": {
@@ -66,16 +62,6 @@
         "rules": [
           {
             "id": "top_level",
-            "is-structured": false,
-            "children": [
-              "top_level_synth",
-              "Frame 9"
-            ],
-            "clip-content": false
-          },
-          {
-            "id": "top_level_synth",
-            "opacity": 100.0,
             "arrangement": "row",
             "main-axis-align": "start",
             "children": [
@@ -87,36 +73,22 @@
               "Frame 7",
               "Contraseña",
               "Frame 8",
-              "Repite Contraseña"
+              "Repite Contraseña",
+              "Frame 9"
             ],
             "item-spacing": 15.0,
             "clip-content": false
-          },
-          {
-            "id": "Frame 9",
-            "margin": {
-              "left": 80.0,
-              "top": 347.2010498046875,
-              "bottom": 9.917564392089844
-            },
-            "is-structured": false,
-            "background-color": {
-              "alpha": 1.0,
-              "hue": 0.0,
-              "saturation": 0.0,
-              "value": 1.0
-            }
           },
           {
             "id": "Nombre",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
-                "value": 59.0
+                "value": 65.0
               },
               "height-constraints": {
                 "sizing-mode": "fixed",
-                "value": 20.52808952331543
+                "value": 21.0
               }
             },
             "text-content": "Nombre",
@@ -139,6 +111,13 @@
                 "sizing-mode": "fixed",
                 "value": 64.0450668334961
               }
+            },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.0
             },
             "is-structured": false,
             "background-color": {
@@ -181,6 +160,13 @@
                 "value": 64.0450668334961
               }
             },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.0
+            },
             "is-structured": false,
             "background-color": {
               "alpha": 1.0,
@@ -194,11 +180,11 @@
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
-                "value": 62.0
+                "value": 65.0
               },
               "height-constraints": {
                 "sizing-mode": "fixed",
-                "value": 20.52808952331543
+                "value": 21.0
               }
             },
             "text-content": "Emial",
@@ -221,6 +207,13 @@
                 "sizing-mode": "fixed",
                 "value": 64.0450668334961
               }
+            },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.0
             },
             "is-structured": false,
             "background-color": {
@@ -263,6 +256,13 @@
                 "value": 64.0450668334961
               }
             },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.0
+            },
             "is-structured": false,
             "background-color": {
               "alpha": 1.0,
@@ -291,6 +291,33 @@
             "text-size": 16.0,
             "line-height": 1.10498046875,
             "typeface": "Lancelot"
+          },
+          {
+            "id": "Frame 9",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 210.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 64.0450668334961
+              }
+            },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.0
+            },
+            "is-structured": false,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
           }
         ]
       }
@@ -301,7 +328,7 @@
       "design": "UsuerCamps",
       "size": {
         "width": 290.0,
-        "height": 437.0
+        "height": 471.0
       }
     }
   ],

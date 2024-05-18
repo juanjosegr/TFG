@@ -21,6 +21,7 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpda
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.HabitScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.LoginRegisterVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.PreferenceManager
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.UserProfileVM
 import com.example.proyectofinaltfg.ui.theme.ProyectoFinalTFGTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +36,7 @@ class MainActivity : ComponentActivity() {
         val updateHabitVM: UpdateHabitVM by viewModels()
         val dragDropViewModel : DragDropViewModel by viewModels()
         val apiVM:ApiVM by viewModels()
+        val userProfileVM: UserProfileVM by viewModels()
 
         super.onCreate(savedInstanceState)
         PreferenceManager.init(this)
@@ -46,7 +48,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM, dragDropViewModel,apiVM)
+                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM, dragDropViewModel,apiVM,userProfileVM)
                 }
             }
         }

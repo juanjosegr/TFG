@@ -8,23 +8,31 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import coil.compose.rememberImagePainter
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.UserProfileVM
 import com.example.proyectofinaltfg.menuabajovariant3.MenuAbajoVariant3
-import com.example.proyectofinaltfg.userfot.UserFot
 import com.example.proyectofinaltfg.usertop.UserTop
 
 @Composable
 fun UserScreen(
-    navController: NavController
+    navController: NavController,
+    userProfileVM: UserProfileVM
 ) {
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
     }
+    LaunchedEffect(Unit) {
+        userProfileVM.fetchUser()
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -34,8 +42,7 @@ fun UserScreen(
             Box {
                 UserTop()
             }
-            UserFot()
-            UsuerCampsMod()
+            ProfileScreenNoEdit(userProfileVM)
         }
         Box(
             modifier = Modifier
@@ -46,7 +53,7 @@ fun UserScreen(
             MenuAbajoVariant3(
                 onHomeGo3 = { navController.navigate(Routes.principalMenuScreen.routes) },
                 onBtnDesconectar = { navController.navigate(Routes.loginScreen.routes) },
-                onactuBtn = { }
+                onactuBtn = { navController.navigate(Routes.userUpdtScreen.routes) }
             )
         }
     }

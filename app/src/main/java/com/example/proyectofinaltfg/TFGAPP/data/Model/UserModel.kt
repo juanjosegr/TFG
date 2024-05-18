@@ -8,5 +8,9 @@ data class UserModel(
     val userId: String,
     val email: String,
     val pasww: String,
-    val userName: String
-)
+    val userName: String,
+    val name: String,
+    val foto: String
+){
+    constructor() : this("", "", "", "", "", "")
+}

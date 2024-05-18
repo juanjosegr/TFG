@@ -130,7 +130,9 @@ class LoginRegisterVM : ViewModel() {
                 email = email.toString(),
                 userId = uid.toString(),
                 pasww = pasww,
-                userName = userName
+                userName = userName,
+                name = "",
+                foto = ""
             )
             // DCS - Añade el usuario a la colección "Users" en la base de datos Firestore
             firestore.collection("Users")
