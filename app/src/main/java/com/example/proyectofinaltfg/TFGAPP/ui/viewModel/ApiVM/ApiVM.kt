@@ -1,7 +1,10 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.viewModel.ApiVM
 
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyectofinaltfg.TFGAPP.data.Model.CatResponse
@@ -29,6 +32,27 @@ class ApiVM : ViewModel() {
     private val phrarsesService = RetrofitServiceFactory.makePharsesService()
     private val firestore = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
+
+    var showAlertScreen by mutableStateOf(false)
+        private set
+
+    var showAlertLike by mutableStateOf(false)
+        private set
+
+    fun trueShowAlertScreen() {
+        showAlertScreen = !showAlertScreen
+    }
+
+    fun LikeShowAlertScreen() {
+        showAlertLike = !showAlertLike
+    }
+
+    var deleteConfirmationDialog by mutableStateOf(false)
+        private set
+
+    fun showDeleteConfirmationDialog() {
+        deleteConfirmationDialog = !deleteConfirmationDialog
+    }
 
 
     init {

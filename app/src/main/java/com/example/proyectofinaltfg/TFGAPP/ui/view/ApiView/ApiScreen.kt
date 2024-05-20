@@ -1,6 +1,5 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.ApiView
 
-import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -21,9 +20,6 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -47,7 +43,6 @@ fun ApiScreen(
     val viewModel: ApiVM = viewModel()
     val cats by viewModel.catList
     val pharses by viewModel.pharsesList
-    var showAlert by remember { mutableStateOf(false) }
 
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
@@ -103,7 +98,7 @@ fun ApiScreen(
                     LikeReload(
                         likeSave = {
                             viewModel.saveCatToFirestore(cat, phrase)
-                            showAlert = true
+                            viewModel.trueShowAlertScreen()
                             viewModel.reloadCats()
                         },
                         reloadOn = { viewModel.reloadCats() }
@@ -112,17 +107,17 @@ fun ApiScreen(
                     CircularProgressIndicator()
                 }
             }
-            if (showAlert) {
+            if (viewModel.showAlertScreen) {
                 AlertDialog(
                     onDismissRequest = {
-                        showAlert = false
+                        viewModel.trueShowAlertScreen()
                     },
                     title = { Text("OK") },
                     text = { Text("Imagen y frase han sido guardada.") },
                     confirmButton = {
                         Button(
                             onClick = {
-                                showAlert = false
+                                viewModel.trueShowAlertScreen()
                             }
                         ) {
                             Text("Aceptar")

@@ -47,11 +47,8 @@ fun ApiLikeScreen(
     navController: NavController,
     apiVM: ApiVM
 ) {
-    val likedCatsAndPhrases by apiVM.getLikedCatsAndPhrases().collectAsState(initial = emptyList())
+    val likedCatsAndPhrases by apiVM.getLikedCatsAndPhrases().collectAsState(emptyList())
     val currentIndex = remember { mutableStateOf(0) }
-    var showAlert by remember { mutableStateOf(false) }
-    var deleteConfirmationDialog by remember { mutableStateOf(false) }
-    fun showDeleteConfirmationDialog() {deleteConfirmationDialog = true}
 
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
@@ -109,7 +106,7 @@ fun ApiLikeScreen(
 
                 Row {
                     Dislike(ondislike = {
-                        showDeleteConfirmationDialog()
+                        apiVM.showDeleteConfirmationDialog()
                     })
                     Spacer(modifier = Modifier.width(70.dp))
                     Reload(
@@ -136,10 +133,10 @@ fun ApiLikeScreen(
         }
     }
 
-    if (deleteConfirmationDialog) {
+    if (apiVM.deleteConfirmationDialog) {
         AlertDialog(
             onDismissRequest = {
-                deleteConfirmationDialog = false
+                apiVM.showDeleteConfirmationDialog()
             },
             title = { Text("¿Estás seguro que deseas borrar este gato?") },
             confirmButton = {
@@ -147,8 +144,8 @@ fun ApiLikeScreen(
                     onClick = {
                         val (currentCat, _) = likedCatsAndPhrases[currentIndex.value]
                         apiVM.deleteCatFromFirestore(currentCat)
-                        showAlert = true
-                        deleteConfirmationDialog = false
+                        apiVM.LikeShowAlertScreen()
+                        apiVM.showDeleteConfirmationDialog()
                     }
                 ) {
                     Text("Sí")
@@ -157,7 +154,7 @@ fun ApiLikeScreen(
             dismissButton = {
                 Button(
                     onClick = {
-                        deleteConfirmationDialog = false
+                        apiVM.showDeleteConfirmationDialog()
                     }
                 ) {
                     Text("No")
@@ -166,17 +163,17 @@ fun ApiLikeScreen(
         )
     }
 
-    if (showAlert) {
+    if (apiVM.showAlertLike) {
         AlertDialog(
             onDismissRequest = {
-                showAlert = false
+                apiVM.LikeShowAlertScreen()
             },
             title = { Text("Gato borrado") },
             text = { Text("El gato ha sido borrado.") },
             confirmButton = {
                 Button(
                     onClick = {
-                        showAlert = false
+                        apiVM.LikeShowAlertScreen()
                     }
                 ) {
                     Text("Aceptar")
