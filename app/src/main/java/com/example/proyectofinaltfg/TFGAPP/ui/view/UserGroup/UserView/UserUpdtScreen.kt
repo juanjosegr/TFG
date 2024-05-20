@@ -55,7 +55,6 @@ fun UserUpdtScreen(
                         userProfileVM.name,
                         userProfileVM.userName,
                         userProfileVM.eemail,
-                        userProfileVM.photoUrl
                     )
                 }
             )

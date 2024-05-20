@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -27,6 +28,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
@@ -43,7 +47,7 @@ fun ApiLikeScreen(
     navController: NavController,
     apiVM: ApiVM
 ) {
-    val likedCats by apiVM.getLikedCats().collectAsState(initial = emptyList())
+    val likedCatsAndPhrases by apiVM.getLikedCatsAndPhrases().collectAsState(initial = emptyList())
     val currentIndex = remember { mutableStateOf(0) }
     var showAlert by remember { mutableStateOf(false) }
     var deleteConfirmationDialog by remember { mutableStateOf(false) }
@@ -70,8 +74,8 @@ fun ApiLikeScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                if (likedCats.isNotEmpty()) {
-                    val currentCat = likedCats[currentIndex.value]
+                if (likedCatsAndPhrases.isNotEmpty()) {
+                    val (currentCat, currentPhrase) = likedCatsAndPhrases[currentIndex.value]
                     Image(
                         painter = rememberImagePainter(data = currentCat.url),
                         contentDescription = "Cat Image",
@@ -81,6 +85,24 @@ fun ApiLikeScreen(
                             .border(width = 4.dp, color = Color.Black)
                             .background(Color.LightGray)
                     )
+
+                    // Mostrar la cita
+                    Column(
+                        modifier = Modifier.padding(16.dp)
+                    ) {
+                        Text(
+                            text = "\"${currentPhrase.quote}\"",
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = currentPhrase.author,
+                            textAlign = TextAlign.Center,
+                            style = TextStyle(fontWeight = FontWeight.Bold),
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
                 } else {
                     Text("No hay gatos guardados como favoritos.")
                 }
@@ -92,8 +114,8 @@ fun ApiLikeScreen(
                     Spacer(modifier = Modifier.width(70.dp))
                     Reload(
                         onReload = {
-                            if (likedCats.isNotEmpty()) {
-                                currentIndex.value = (currentIndex.value + 1) % likedCats.size
+                            if (likedCatsAndPhrases.isNotEmpty()) {
+                                currentIndex.value = (currentIndex.value + 1) % likedCatsAndPhrases.size
                             }
                         }
                     )
@@ -123,7 +145,7 @@ fun ApiLikeScreen(
             confirmButton = {
                 Button(
                     onClick = {
-                        val currentCat = likedCats[currentIndex.value]
+                        val (currentCat, _) = likedCatsAndPhrases[currentIndex.value]
                         apiVM.deleteCatFromFirestore(currentCat)
                         showAlert = true
                         deleteConfirmationDialog = false

@@ -23,6 +23,5 @@ data class CatResponse(
     @set:PropertyName("userEmail")
     var userEmail: String = ""
 ) {
-    // Constructor sin argumentos requerido por Firebase
     constructor() : this("", "", 0, 0, "")
 }

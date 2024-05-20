@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.proyectofinaltfg.TFGAPP.data.Model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -51,7 +52,6 @@ class UserProfileVM : ViewModel() {
     fun onPhotoUrlChange(uri: Uri?) {
         photoUri = uri
     }
-
     fun onNameChange(name: String) {
         this.name = name
     }
@@ -70,10 +70,6 @@ class UserProfileVM : ViewModel() {
 
     fun resetUpdateSuccessAlert() {
         showUpdateSuccessAlert = false
-    }
-
-    init {
-        fetchUser()
     }
 
     fun fetchUser() {
@@ -120,22 +116,24 @@ class UserProfileVM : ViewModel() {
     }
 
 
-    fun updateUser(name: String, userName: String, email: String, photoUrl: String) {
+    fun updateUser(name: String, userName: String, email: String) {
         userId?.let { userId ->
             val user = hashMapOf(
                 "name" to name,
                 "userName" to userName,
-                "email" to email,
-                "foto" to photoUri.toString()
+                "email" to email
             )
-
             viewModelScope.launch(Dispatchers.IO) {
                 firestore.collection("Users")
                     .document(userId)
                     .update(user as Map<String, Any>)
                     .addOnSuccessListener {
                         Log.d("updateUser UserProfileVM", "User updated successfully")
+                        photoUri?.let { uri ->
+                            uploadPhotoToStorage(uri)
+                        }
                         showUpdateSuccessAlert = true
+
                     }
                     .addOnFailureListener { e ->
                         Log.e("updateUser UserProfileVM", "Error updating user: $e")
@@ -144,5 +142,24 @@ class UserProfileVM : ViewModel() {
         }
     }
 
+    private fun uploadPhotoToStorage(uri: Uri) {
+        val storageRef = FirebaseStorage.getInstance().reference
+        val photoRef = storageRef.child("profile_photos/${auth.currentUser?.uid}")
+
+        val uploadTask = photoRef.putFile(uri)
+
+        uploadTask.addOnSuccessListener { taskSnapshot ->
+            taskSnapshot.storage.downloadUrl.addOnSuccessListener { downloadUri ->
+                photoUrl = downloadUri.toString()
+                Log.d("uploadPhotoToStorage", "Photo URL updated: $photoUrl")
+                photoUri = downloadUri
+                onPhotoUrlChange(photoUri)
+            }.addOnFailureListener { e ->
+                Log.e("uploadPhotoToStorage", "Error getting download URL: $e")
+            }
+        }.addOnFailureListener { e ->
+            Log.e("uploadPhotoToStorage", "Error uploading photo: $e")
+        }
+    }
 
 }

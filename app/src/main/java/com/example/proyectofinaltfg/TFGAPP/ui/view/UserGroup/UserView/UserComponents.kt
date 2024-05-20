@@ -83,7 +83,7 @@ fun ProfileScreenNoEdit(userProfileVM: UserProfileVM) {
 }
 
 @Composable
-fun ProfileTextField(label: String, value: String, isPassword: Boolean = false) {
+fun ProfileTextField(label: String, value: String) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = label,
@@ -92,7 +92,7 @@ fun ProfileTextField(label: String, value: String, isPassword: Boolean = false) 
         )
         Spacer(modifier = Modifier.height(4.dp))
         Text(
-            text = if (isPassword) "●●●●●●●●" else value,
+            text = value,
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Bold,
             modifier = Modifier

@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.ApiView
 
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -7,9 +8,10 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -25,6 +27,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
@@ -41,6 +46,7 @@ fun ApiScreen(
 ) {
     val viewModel: ApiVM = viewModel()
     val cats by viewModel.catList
+    val pharses by viewModel.pharsesList
     var showAlert by remember { mutableStateOf(false) }
 
     BackHandler {
@@ -65,8 +71,10 @@ fun ApiScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
-                if (cats.isNotEmpty()) {
+                if (cats.isNotEmpty() && pharses.isNotEmpty()) {
                     val cat = cats.first()
+                    val phrase = pharses.random()
+
                     Image(
                         painter = rememberImagePainter(data = cat.url),
                         contentDescription = "Cat Image",
@@ -76,9 +84,25 @@ fun ApiScreen(
                             .border(width = 4.dp, color = Color.Black)
                             .background(Color.LightGray)
                     )
+                    Column(
+                        modifier = Modifier.padding(16.dp)
+                    ) {
+                        Text(
+                            text = phrase.quote,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = phrase.author,
+                            textAlign = TextAlign.Center,
+                            style = TextStyle(fontWeight = FontWeight.Bold),
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
                     LikeReload(
                         likeSave = {
-                            viewModel.saveCatToFirestore(cat)
+                            viewModel.saveCatToFirestore(cat, phrase)
                             showAlert = true
                             viewModel.reloadCats()
                         },
@@ -87,15 +111,14 @@ fun ApiScreen(
                 } else {
                     CircularProgressIndicator()
                 }
-
             }
             if (showAlert) {
                 AlertDialog(
                     onDismissRequest = {
                         showAlert = false
                     },
-                    title = { Text("Imagen Guardada") },
-                    text = { Text("La imagen del gato ha sido guardada.") },
+                    title = { Text("OK") },
+                    text = { Text("Imagen y frase han sido guardada.") },
                     confirmButton = {
                         Button(
                             onClick = {
@@ -116,7 +139,7 @@ fun ApiScreen(
         ) {
             MenuAbajoVariant5(
                 onHomeGo5 = { navController.navigate(Routes.principalMenuScreen.routes) },
-                onLikeBtn = { navController.navigate(Routes.ApiLikeScreen.routes)},
+                onLikeBtn = { navController.navigate(Routes.ApiLikeScreen.routes) },
                 onUserGo5 = { navController.navigate(Routes.userScren.routes) }
             )
         }

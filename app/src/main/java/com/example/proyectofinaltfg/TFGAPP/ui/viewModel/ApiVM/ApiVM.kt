@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyectofinaltfg.TFGAPP.data.Model.CatResponse
+import com.example.proyectofinaltfg.TFGAPP.data.Model.PharsesResponse
 import com.example.proyectofinaltfg.TFGAPP.data.Retrofit.RetrofitServiceFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -21,19 +22,24 @@ class ApiVM : ViewModel() {
     private val _catList = mutableStateOf<List<CatResponse>>(emptyList())
     val catList: State<List<CatResponse>> = _catList
 
-    private val service = RetrofitServiceFactory.makeRetrofitService()
+    private val _PharsesList = mutableStateOf<List<PharsesResponse>>(emptyList())
+    val pharsesList: State<List<PharsesResponse>> = _PharsesList
+
+    private val catService = RetrofitServiceFactory.makeCatService()
+    private val phrarsesService = RetrofitServiceFactory.makePharsesService()
     private val firestore = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
 
     init {
         fetchCats()
+        fetchPharses()
     }
 
     private fun fetchCats() {
         viewModelScope.launch {
             try {
-                val cats = service.listOfCats()
+                val cats = catService.listOfCats()
                 _catList.value = cats
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -41,31 +47,44 @@ class ApiVM : ViewModel() {
         }
     }
 
-
-    fun reloadCats() {
-        fetchCats()
-    }
-
-    // Función para guardar la imagen en Firestore
-    fun saveCatToFirestore(cat: CatResponse) {
-        val userEmail = auth.currentUser?.email
+    private fun fetchPharses() {
         viewModelScope.launch {
             try {
-                val catMap = mapOf(
-                    "id" to cat.id,
-                    "url" to cat.url,
-                    "width" to cat.width,
-                    "height" to cat.height,
-                    "userEmail" to userEmail
-                )
-                firestore.collection("liked_cats").add(catMap).await()
+                val apiKey = "w7fTGlcVa/uK13uofKgliQ==XQwMR6RvxA3rQogR"
+                val quotes = phrarsesService.listOfQuotes(apiKey)
+                _PharsesList.value = quotes
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
     }
 
-    fun getLikedCats(): Flow<List<CatResponse>> = flow {
+    fun reloadCats() {
+        fetchCats()
+        fetchPharses()
+    }
+
+    fun saveCatToFirestore(cat: CatResponse, phrase: PharsesResponse) {
+        val userEmail = auth.currentUser?.email
+        viewModelScope.launch {
+            try {
+                val dataMap = mapOf(
+                    "id" to cat.id,
+                    "url" to cat.url,
+                    "width" to cat.width,
+                    "height" to cat.height,
+                    "userEmail" to userEmail,
+                    "quote" to phrase.quote,
+                    "author" to phrase.author
+                )
+                firestore.collection("liked_cats").add(dataMap).await()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun getLikedCatsAndPhrases(): Flow<List<Pair<CatResponse, PharsesResponse>>> = flow {
         val userEmail = auth.currentUser?.email
         if (userEmail != null) {
             val querySnapshot = firestore.collection("liked_cats")
@@ -73,13 +92,19 @@ class ApiVM : ViewModel() {
                 .get()
                 .await()
 
-            val catList = mutableListOf<CatResponse>()
+            val catAndPhraseList = mutableListOf<Pair<CatResponse, PharsesResponse>>()
             for (document in querySnapshot.documents) {
                 val cat = document.toObject<CatResponse>()
-                cat?.let { catList.add(it) }
+                val quote = document.getString("quote") ?: ""
+                val author = document.getString("author") ?: ""
+
+                val phrase = PharsesResponse(quote = quote, author = author, category = "")
+                if (cat != null) {
+                    catAndPhraseList.add(Pair(cat, phrase))
+                }
             }
 
-            emit(catList)
+            emit(catAndPhraseList)
         }
     }.flowOn(Dispatchers.IO)
 
