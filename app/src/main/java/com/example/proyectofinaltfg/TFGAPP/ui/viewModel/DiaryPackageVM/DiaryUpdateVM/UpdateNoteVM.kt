@@ -12,7 +12,9 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+/**
+ * ViewModel encargado de gestionar la actualización de notas.
+ */
 class UpdateNoteVM : ViewModel() {
 
     private val firestore = Firebase.firestore
@@ -32,22 +34,38 @@ class UpdateNoteVM : ViewModel() {
         private set
     var casoErrorAcierto by mutableStateOf("")
         private set
-
+    /**
+     * Función para cambiar el título de la nota.
+     * @param title El nuevo título de la nota.
+     */
     fun changeTitleNote(title: String) {
         this.titleNote = title
         Log.d("Titulo", title)
     }
 
+    /**
+     * Función para cambiar el texto de la nota.
+     * @param text El nuevo texto de la nota.
+     */
     fun changeTextNote(text: String) {
         this.textNote = text
         Log.d("Texto", text)
     }
-
+    /**
+     * Función para cambiar el color de la nota.
+     * @param color El nuevo color de la nota.
+     */
     fun changeColorNote(color: Color) {
         this.noteColorIndex = color
         Log.d("Color", color.toString())
     }
-
+    /**
+     * Función para obtener y establecer todos los datos de una nota.
+     * @param title El título de la nota.
+     * @param text El texto de la nota.
+     * @param backgroundColor El color de fondo de la nota.
+     * @param idDoc El ID del documento de la nota.
+     */
     fun allDateObtains(
         title: String,
         text: String,
@@ -60,7 +78,10 @@ class UpdateNoteVM : ViewModel() {
         this.idDoc = idDoc
         Log.d("Obtección de datos", title + text + backgroundColor + idDoc)
     }
-
+    /**
+     * Función para actualizar una nota en Firestore.
+     * @param idDoc El ID del documento de la nota a actualizar.
+     */
     fun updateNote(idDoc: String) {
         Log.d("UpdateNoteComponent", "ID de la nota antes de la actualización: $idDoc")
         viewModelScope.launch(Dispatchers.IO) {
@@ -103,7 +124,10 @@ class UpdateNoteVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Función para eliminar una nota en Firestore.
+     * @param idDoc El ID del documento de la nota a eliminar.
+     */
     fun deleteNote(idDoc: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -124,7 +148,9 @@ class UpdateNoteVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Función para cerrar la alerta.
+     */
     fun closedShowAlert() {
         showAlert = false
     }

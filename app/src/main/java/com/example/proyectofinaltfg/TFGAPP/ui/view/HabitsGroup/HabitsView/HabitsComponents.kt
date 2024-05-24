@@ -36,7 +36,14 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.H
 import com.example.proyectofinaltfg.framedetextos.inter
 import com.example.proyectofinaltfg.ui.theme.LightGreen
 import com.example.proyectofinaltfg.ui.theme.Red40
-
+/**
+ * Columnas separadas que muestran los hábitos divididos en dos columnas según su estado "por hacer" o "hecha".
+ *
+ * @param navController El controlador de navegación de Jetpack Compose.
+ * @param habitScreenVM El ViewModel que gestiona los hábitos.
+ * @param updateHabitVM El ViewModel que gestiona la actualización de hábitos.
+ * @param dragDropViewModel El ViewModel que gestiona el arrastre y la soltura de los hábitos.
+ */
 @Composable
 fun ColumnasSeparadas(
     navController: NavController,
@@ -156,7 +163,17 @@ fun ColumnasSeparadas(
     }
 }
 
-
+/**
+ * Componente de caja personalizado que muestra el hábito y permite su interacción.
+ *
+ * @param text El texto del hábito.
+ * @param backgroundColor El color de fondo del componente.
+ * @param textColor El color del texto del componente.
+ * @param navController El controlador de navegación de Jetpack Compose.
+ * @param updateHabitVM El ViewModel que gestiona la actualización de hábitos.
+ * @param idHabit El ID del hábito.
+ * @param modifier El modificador para aplicar al componente.
+ */
 @Composable
 fun CustomTextBox(
     text: String,

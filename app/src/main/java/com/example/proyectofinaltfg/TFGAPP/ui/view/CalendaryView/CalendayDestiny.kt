@@ -33,7 +33,14 @@ import com.example.proyectofinaltfg.ui.theme.LightGreen
 import com.example.proyectofinaltfg.ui.theme.RedOrange
 import com.example.proyectofinaltfg.ui.theme.RedPink
 import com.example.proyectofinaltfg.ui.theme.Violet
-
+/**
+ * Composable que representa la pantalla de destino del calendario para una fecha específica.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param date La fecha seleccionada en el calendario en formato "yyyy-MM-dd".
+ * @param diaryScreenVM El ViewModel para gestionar los datos de las notas.
+ * @param habitScreenVM El ViewModel para gestionar los datos de los hábitos.
+ */
 @Composable
 fun CalendaryDestiny(
     navController: NavController,
@@ -44,9 +51,11 @@ fun CalendaryDestiny(
     BackHandler {
         navController.navigate(Routes.calendaryScreen.routes)
     }
+    // Recolecta las notas y hábitos asociados a la fecha seleccionada
     val notes by diaryScreenVM.notesData.collectAsState()
     val habits by habitScreenVM.habitsData.collectAsState()
 
+    // Realiza operaciones de efecto lanzado cuando cambia la fecha
     LaunchedEffect(date) {
         Log.d("TargetScreen", "LaunchedEffect with date: $date")
         diaryScreenVM.fetchNotesDate(date)
@@ -75,6 +84,7 @@ fun CalendaryDestiny(
                         reverseScrolling = true
                     )
             ) {
+                // Sección de notas
                 Text("Notas")
                 notes.forEach { note ->
                     val backgroundColor: Color =
@@ -97,6 +107,7 @@ fun CalendaryDestiny(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
+                // Sección de hábitos
                 Text("Hábitos")
                 habits.forEach { habit ->
                     CustomHabitsBox(

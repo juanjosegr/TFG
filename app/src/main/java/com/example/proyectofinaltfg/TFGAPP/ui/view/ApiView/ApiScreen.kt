@@ -35,12 +35,18 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.ApiVM.ApiVM
 import com.example.proyectofinaltfg.arribaaleatorio.ArribaAleatorio
 import com.example.proyectofinaltfg.likereload.LikeReload
 import com.example.proyectofinaltfg.menuabajovariant5.MenuAbajoVariant5
-
+/**
+ * Composable que representa la pantalla de la API, donde se muestran imágenes de gatos y frases aleatorias.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ */
 @Composable
 fun ApiScreen(
     navController: NavController
 ) {
+    // ViewModel para manejar las operaciones relacionadas con la API
     val viewModel: ApiVM = viewModel()
+    // Obtiene la lista de gatos y frases del ViewModel
     val cats by viewModel.catList
     val pharses by viewModel.pharsesList
 
@@ -66,10 +72,12 @@ fun ApiScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
+                // Verifica si hay gatos y frases disponibles
                 if (cats.isNotEmpty() && pharses.isNotEmpty()) {
                     val cat = cats.first()
                     val phrase = pharses.random()
 
+                    // Muestra la imagen del gato
                     Image(
                         painter = rememberImagePainter(data = cat.url),
                         contentDescription = "Cat Image",
@@ -79,6 +87,7 @@ fun ApiScreen(
                             .border(width = 4.dp, color = Color.Black)
                             .background(Color.LightGray)
                     )
+                    // Muestra la cita
                     Column(
                         modifier = Modifier.padding(16.dp)
                     ) {
@@ -104,9 +113,11 @@ fun ApiScreen(
                         reloadOn = { viewModel.reloadCats() }
                     )
                 } else {
+                    // Muestra un indicador de carga si no hay datos disponibles
                     CircularProgressIndicator()
                 }
             }
+            // Diálogo de alerta al guardar imagen y frase
             if (viewModel.showAlertScreen) {
                 AlertDialog(
                     onDismissRequest = {

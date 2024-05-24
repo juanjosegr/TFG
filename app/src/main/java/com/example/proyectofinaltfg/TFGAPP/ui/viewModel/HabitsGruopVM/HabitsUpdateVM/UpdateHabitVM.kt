@@ -10,7 +10,9 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+/**
+ * ViewModel encargado de gestionar la actualización y eliminación de hábitos.
+ */
 class UpdateHabitVM : ViewModel() {
 
     private val firestore = Firebase.firestore
@@ -29,11 +31,20 @@ class UpdateHabitVM : ViewModel() {
 
     var hechaHacer by mutableStateOf("")
 
+    /**
+     * Función para cambiar el texto del hábito.
+     * @param text El nuevo texto del hábito.
+     */
     fun changeTextHabit(text: String) {
         this.textHabit = text
         Log.d("Texto", text)
     }
-
+    /**
+     * Función para obtener todos los datos necesarios para actualizar un hábito.
+     * @param text El texto del hábito.
+     * @param idHabit El ID del hábito.
+     * @param hechaHacer El estado del hábito (hecho/por hacer).
+     */
     fun allDateObtains(
         text: String,
         idHabit: String,
@@ -45,7 +56,10 @@ class UpdateHabitVM : ViewModel() {
         Log.d("Obtección de datos",  text  + idHabit + hechaHacer)
         updateState(idHabit)
     }
-
+    /**
+     * Función para actualizar un hábito en Firestore.
+     * @param idHabit El ID del hábito.
+     */
     fun updateHabitVM(idHabit: String) {
         Log.d("UpdateNoteComponent", "ID de la nota antes de la actualización: $idHabit")
         viewModelScope.launch(Dispatchers.IO) {
@@ -87,7 +101,10 @@ class UpdateHabitVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Función para actualizar el estado de un hábito en Firestore.
+     * @param idHabit El ID del hábito.
+     */
     fun updateState(idHabit: String) {
         Log.d("UpdateNoteComponent", "ID de la nota antes de la actualización: $idHabit")
         viewModelScope.launch(Dispatchers.IO) {
@@ -120,7 +137,10 @@ class UpdateHabitVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Función para eliminar un hábito en Firestore.
+     * @param idHabit El ID del hábito.
+     */
     fun deleteHabitVM(idHabit: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -141,7 +161,9 @@ class UpdateHabitVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Función para cerrar la alerta.
+     */
     fun closedShowAlert() {
         showAlert = false
     }

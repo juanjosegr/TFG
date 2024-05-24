@@ -1,8 +1,14 @@
 package com.example.proyectofinaltfg.TFGAPP.data.Model
 
 /**
- * Define el modelo de datos para un usuario.
- * Utilizado para gestionar la información de los usuarios en la base de datos.
+ * Esta clase se utiliza para almacenar información sobre los usuarios.
+ *
+ * @param userId El identificador único del usuario.
+ * @param email El correo electrónico del usuario.
+ * @param pasww La contraseña del usuario.
+ * @param userName El nick de usuario del usuario.
+ * @param name El nombre del usuario.
+ * @param foto La URL de la foto de perfil del usuario.
  */
 data class UserModel(
     val userId: String,

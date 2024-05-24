@@ -20,7 +20,12 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpda
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
 import com.example.proyectofinaltfg.grupoactualizarhabito.GrupoActualizarHabito
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
-
+/**
+ * Pantalla de actualización de hábitos donde los usuarios pueden modificar un hábito existente.
+ *
+ * @param navController El controlador de navegación de Jetpack Compose.
+ * @param updateHabitVM El ViewModel que gestiona la actualización de hábitos.
+ */
 @Composable
 fun HabitUpdateScreen(
     navController: NavController,

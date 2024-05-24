@@ -23,7 +23,17 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpda
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.HabitScreenVM
 import kotlin.math.roundToInt
 
-
+/**
+ * Composable para representar un hábito que puede ser arrastrado y soltado.
+ *
+ * @param habit El modelo del hábito que se está representando.
+ * @param backgroundColor El color de fondo del cuadro de texto personalizado.
+ * @param textColor El color del texto del cuadro de texto personalizado.
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param updateHabitVM El ViewModel para actualizar los hábitos.
+ * @param dragDropViewModel El ViewModel para gestionar el arrastre y la soltura.
+ * @param habitScreenVM El ViewModel para la pantalla de hábitos.
+ */
 @Composable
 fun DraggableHabit(
     habit: HabitModel,
@@ -78,7 +88,13 @@ fun DraggableHabit(
 }
 
 
-
+/**
+ * Composable para representar un hábito mientras se está arrastrando.
+ *
+ * @param habit El modelo del hábito que se está arrastrando.
+ * @param offsetX La posición horizontal del hábito arrastrado.
+ * @param offsetY La posición vertical del hábito arrastrado.
+ */
 @Composable
 fun DraggingHabit(habit: HabitModel, offsetX: Float, offsetY: Float) {
     CustomTextBox(

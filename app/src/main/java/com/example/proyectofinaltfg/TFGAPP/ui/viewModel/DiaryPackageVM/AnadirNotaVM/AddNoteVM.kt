@@ -15,7 +15,9 @@ import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Calendar
-
+/**
+ * Clase ViewModel responsable de gestionar añadir nuevas notas.
+ */
 class AddNoteVM : ViewModel() {
 
     private val auth: FirebaseAuth = Firebase.auth
@@ -38,27 +40,42 @@ class AddNoteVM : ViewModel() {
 
     var selectedColorName by mutableStateOf("Elegir color")
         private set
-
+    /**
+     * Función para actualizar el título de la nota.
+     * @param title El nuevo título de la nota.
+     */
     fun changeTitleNote(title: String) {
         this.titleNote = title
         Log.d("Titulo", title)
     }
-
+    /**
+     * Función para actualizar el texto de la nota.
+     * @param text El nuevo texto de la nota.
+     */
     fun changeTextNote(text: String) {
         this.textNote = text
         Log.d("Texto", text)
     }
 
+    /**
+     * Función para actualizar el color de la nota.
+     * @param color El nuevo color de la nota.
+     */
     fun changeColorNote(color: Color) {
         this.noteColorIndex = color
         Log.d("Color", color.toString())
     }
-
+    /**
+     * Función para actualizar el color de la nota.
+     * @param color El nuevo color de la nota.
+     */
     fun changeSelectedColorName(newName: String) {
         selectedColorName = newName
     }
 
-
+    /**
+     * Función para guardar la nueva nota en Firebase Firestore.
+     */
     fun saveNewNote() {
         val email = auth.currentUser?.email
 
@@ -95,14 +112,18 @@ class AddNoteVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Función para resetear la información de la nota.
+     */
     private fun resetInfoNote() {
         titleNote = ""
         textNote = ""
         noteColorIndex = NotaModel.noteColors[0]
         selectedColorName = "Elegir color"
     }
-
+    /**
+     * Función para cerrar la alerta.
+     */
     fun closedShowAlert() {
         showAlert = false
     }

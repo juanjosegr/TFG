@@ -16,7 +16,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.proyectofinaltfg.framedetextos.inter
 
-
+/**
+ * Composable que muestra una caja personalizada para notas.
+ *
+ * @param title El título de la nota.
+ * @param text El contenido de la nota.
+ * @param backgroundColor El color de fondo de la caja.
+ * @param titleColor El color del título de la nota.
+ * @param textColor El color del texto de la nota.
+ */
 @Composable
 fun CustomNotesBox(
     title: String,
@@ -54,7 +62,13 @@ fun CustomNotesBox(
     }
     Spacer(modifier = Modifier.height(16.dp))
 }
-
+/**
+ * Composable que muestra una caja personalizada para hábitos.
+ *
+ * @param text El texto del hábito.
+ * @param backgroundColor El color de fondo de la caja.
+ * @param textColor El color del texto del hábito.
+ */
 @Composable
 fun CustomHabitsBox(
     text: String,

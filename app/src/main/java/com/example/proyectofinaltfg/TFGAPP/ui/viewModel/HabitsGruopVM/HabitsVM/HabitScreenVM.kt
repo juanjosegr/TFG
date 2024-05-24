@@ -13,7 +13,9 @@ import kotlinx.coroutines.flow.StateFlow
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
+/**
+ * ViewModel encargado de gestionar la pantalla de hábitos.
+ */
 class HabitScreenVM : ViewModel() {
 
     private val auth: FirebaseAuth = Firebase.auth
@@ -22,10 +24,14 @@ class HabitScreenVM : ViewModel() {
     private val _habitsData = MutableStateFlow<List<HabitModel>>(emptyList())
     val habitsData: StateFlow<List<HabitModel>> = _habitsData
 
+    // Inicialización para obtener los hábitos al crear la instancia del ViewModel
     init {
         fetchHabits()
     }
 
+    /**
+     * Función para obtener todos los hábitos desde Firestore.
+     */
     fun fetchHabits() {
         firestore.collection("Habits")
             .orderBy("fechaCreacion", Query.Direction.ASCENDING)
@@ -40,7 +46,10 @@ class HabitScreenVM : ViewModel() {
                 Log.e("Firebase", "Error fetching notes: $e")
             }
     }
-
+    /**
+     * Función para obtener los hábitos creados en una fecha específica.
+     * @param date La fecha en formato "yyyy-MM-dd".
+     */
     fun fetchHabitsDate(date: String) {
         val email = auth.currentUser?.email
 
@@ -75,6 +84,11 @@ class HabitScreenVM : ViewModel() {
         }
     }
 
+    /**
+     * Función para actualizar el estado de un hábito en Firestore.
+     * @param habitId El ID del hábito.
+     * @param newStatus El nuevo estado del hábito (por hacer/hecho).
+     */
     fun updateHabitStatus(habitId: String, newStatus: String) {
         firestore.collection("Habits").document(habitId)
             .update("hecha_hacer", newStatus)

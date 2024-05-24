@@ -15,6 +15,7 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.ApiVM.ApiVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
+import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.GymVM.RutinaVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.DragDrop.DragDropViewModel
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsUpdateVM.UpdateHabitVM
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
         val dragDropViewModel : DragDropViewModel by viewModels()
         val apiVM:ApiVM by viewModels()
         val userProfileVM: UserProfileVM by viewModels()
-
+        val rutinaVM: RutinaVM by viewModels()
         super.onCreate(savedInstanceState)
         PreferenceManager.init(this)
         enableEdgeToEdge()
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM, dragDropViewModel,apiVM,userProfileVM)
+                    NavManager(loginScreenVM, diaryScreenVM, addNoteVM, updateNoteVM,addHabitVM,updateHabitVM, habitScreenVM, dragDropViewModel,apiVM,userProfileVM,rutinaVM)
                 }
             }
         }

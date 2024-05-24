@@ -16,7 +16,9 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+/**
+ * ViewModel para manejar la lógica de inicio de sesión y registro de usuarios.
+ */
 class LoginRegisterVM : ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
     private val firestore = Firebase.firestore
@@ -36,20 +38,32 @@ class LoginRegisterVM : ViewModel() {
         private set
     var casoErrorAcierto by mutableStateOf("")
         private set
-
+    /**
+     * Cambia el valor del correo electrónico.
+     * @param email El nuevo valor del correo electrónico.
+     */
     fun changeEmail(email: String) {
         this.email = email
     }
-
+    /**
+     * Cambia el valor de la contraseña.
+     * @param password El nuevo valor de la contraseña.
+     */
     fun changePasww(pasww: String) {
         this.password = pasww
     }
-
+    /**
+     * Cambia el valor del nombre de usuario.
+     * @param userName El nuevo valor del nombre de usuario.
+     */
     fun chaneUserName(user: String) {
         this.userName = user
     }
 
-
+    /**
+     * Inicia sesión con el correo electrónico y la contraseña proporcionados.
+     * @param onSuccess Función de devolución de llamada a ejecutar en caso de éxito.
+     */
     fun login(onSuccess: () -> Unit) {
         viewModelScope.launch {
             if (email.isBlank() || password.isBlank()) {
@@ -75,7 +89,10 @@ class LoginRegisterVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Crea un nuevo usuario con los datos proporcionados.
+     * @param onSuccess Función de devolución de llamada a ejecutar en caso de éxito.
+     */
     fun createUser(onSuccess: () -> Unit) {
         viewModelScope.launch {
             try {
@@ -120,7 +137,12 @@ class LoginRegisterVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Guarda la información del usuario en Firestore.
+     * @param userLoginName Nombre de usuario para el login.
+     * @param password Contraseña del usuario.
+     * @param userName Nombre de usuario.
+     */
     private fun saveUser(userLoginName: String, pasww: String, userName: String) {
         val uid = auth.currentUser?.uid
         val email = auth.currentUser?.email
@@ -146,12 +168,20 @@ class LoginRegisterVM : ViewModel() {
                 .addOnFailureListener { Log.d("ERROR AL GUARDAR", "ERROR al guardar en Firestore") }
         }
     }
-
+    /**
+     * Verifica si el correo electrónico tiene un formato válido.
+     * @param email Correo electrónico a validar.
+     * @return true si el correo electrónico es válido, false en caso contrario.
+     */
     private fun isValidEmail(email: String): Boolean {
         val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
         return email.matches(emailPattern.toRegex())
     }
-
+    /**
+     * Valida que la contraseña cumpla con los criterios definidos.
+     * @param password Contraseña a validar.
+     * @return Pair con un Boolean indicando si la contraseña es válida y un String con el mensaje de error si no lo es.
+     */
     private fun validatePassword(password: String): Pair<Boolean, String> {
         // Verificar longitud mínima de la contraseña
         if (password.length < 6) {
@@ -183,7 +213,11 @@ class LoginRegisterVM : ViewModel() {
         return Pair(true, "")
     }
 
-
+    /**
+     * Mapea un error de validación a su correspondiente mensaje de error.
+     * @param error Error de validación.
+     * @return Mensaje de error correspondiente.
+     */
     private fun mapErrorToString(error: InvalidError): String {
         return when (error) {
             InvalidError.LOW_CHARACTERS -> "No hay suficientes caracteres en la contraseña"
@@ -193,11 +227,15 @@ class LoginRegisterVM : ViewModel() {
             InvalidError.NO_SPECIAL_CHARACTERS -> "No hay caracteres especiales"
         }
     }
-
+    /**
+     * Oculta la alerta de error.
+     */
     fun closedShowAlert() {
         showAlert = false
     }
-
+    /**
+     * Restablece los campos de entrada.
+     */
     fun resetFields() {
         email = ""
         password = ""
@@ -213,7 +251,9 @@ class LoginRegisterVM : ViewModel() {
             password = PreferenceManager.getPassword()
         }
     }
-
+    /**
+     * Guarda las preferencias de usuario.
+     */
     fun guardarPreferencias() {
         PreferenceManager.setRememberUser(recordarUsuario)
         if (recordarUsuario) {
@@ -225,7 +265,9 @@ class LoginRegisterVM : ViewModel() {
         }
     }
 }
-
+/**
+ * Enumeración de errores de validación de contraseñas.
+ */
 enum class InvalidError {
     LOW_CHARACTERS,
     NO_LOWERCASE,
@@ -233,34 +275,59 @@ enum class InvalidError {
     NO_DIGITS,
     NO_SPECIAL_CHARACTERS,
 }
+
+/**
+ * Object para gestionar las preferencias del usuario.
+ */
 object PreferenceManager {
     private const val PREF_NAME = "login_prefs"
     private lateinit var sharedPreferences: SharedPreferences
-
+    /**
+     * Inicializa las preferencias del usuario.
+     * @param context Contexto de la aplicación.
+     */
     fun init(context: Context) {
         sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
     }
-
+    /**
+     * Establece si se debe recordar al usuario.
+     * @param value Valor booleano indicando si se debe recordar al usuario.
+     */
     fun setRememberUser(value: Boolean) {
         sharedPreferences.edit().putBoolean("remember_user", value).apply()
     }
-
+    /**
+     * Obtiene el valor indicando si se debe recordar al usuario.
+     * @return true si se debe recordar al usuario, false en caso contrario.
+     */
     fun getRememberUser(): Boolean {
         return sharedPreferences.getBoolean("remember_user", false)
     }
-
+    /**
+     * Establece el correo electrónico del usuario.
+     * @param email Correo electrónico del usuario.
+     */
     fun setEmail(email: String) {
         sharedPreferences.edit().putString("email", email).apply()
     }
-
+    /**
+     * Obtiene el correo electrónico del usuario.
+     * @return Correo electrónico del usuario.
+     */
     fun getEmail(): String {
         return sharedPreferences.getString("email", "") ?: ""
     }
-
+    /**
+     * Establece la contraseña del usuario.
+     * @param password Contraseña del usuario.
+     */
     fun setPassword(password: String) {
         sharedPreferences.edit().putString("password", password).apply()
     }
-
+    /**
+     * Obtiene la contraseña del usuario.
+     * @return Contraseña del usuario.
+     */
     fun getPassword(): String {
         return sharedPreferences.getString("password", "") ?: ""
     }

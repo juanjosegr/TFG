@@ -35,7 +35,15 @@ import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
 import com.example.proyectofinaltfg.framedetextos.inter
-
+/**
+ * Muestra un diálogo de alerta con un título, texto y botón de confirmación personalizados.
+ *
+ * @param title Título del diálogo de alerta.
+ * @param text Texto del diálogo de alerta.
+ * @param confirmText Texto del botón de confirmación.
+ * @param onAcceptClick Función lambda para manejar el clic en el botón de confirmación.
+ * @param OnDissmisClicl Función lambda para manejar el evento de cierre del diálogo.
+ */
 @Composable
 fun ShowAlert(
     title: String,
@@ -63,7 +71,11 @@ fun ShowAlert(
         }
     )
 }
-
+/**
+ * Icono para mostrar o ocultar una contraseña.
+ *
+ * @param passwordVisible Estado mutable que indica si la contraseña es visible o no.
+ */
 @Composable
 fun PasswordVisibleIcon(
     passwordVisible: MutableState<Boolean>
@@ -84,7 +96,18 @@ fun PasswordVisibleIcon(
 
     }
 }
-
+/**
+ * Componente personalizado para mostrar una casilla de texto con un título y un fondo de color.
+ *
+ * @param title Título de la casilla de texto.
+ * @param text Texto de la casilla de texto.
+ * @param backgroundColor Color de fondo de la casilla de texto.
+ * @param titleColor Color del título de la casilla de texto.
+ * @param textColor Color del texto de la casilla de texto.
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param updateNoteVM El ViewModel para actualizar notas.
+ * @param idDoc El ID del documento asociado a la nota.
+ */
 @Composable
 fun CustomTextBox(
     title: String,

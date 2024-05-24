@@ -24,7 +24,14 @@ import com.example.proyectofinaltfg.TFGAPP.ui.view.GenericComponent.ShowAlert
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.LoginRegisterVM
 import com.example.proyectofinaltfg.gruporegistro.*
 
-
+/**
+ * Grupo de componentes para el registro de un nuevo usuario.
+ *
+ * @param modifier Modificador para personalizar la apariencia y el diseño del grupo.
+ * @param onBtnAcept Callback para manejar la acción de aceptar (registro) del usuario.
+ * @param loginScreenVM ViewModel que maneja la lógica de inicio de sesión y registro.
+ * @param passwordVisible Estado para controlar la visibilidad de la contraseña.
+ */
 @Composable
 fun GrupoRegistroNuevo(
     modifier: Modifier = Modifier,
@@ -106,7 +113,13 @@ fun GrupoRegistroNuevo(
     }
 }
 
-
+/**
+ * Llamada para mostrar un diálogo de alerta en la pantalla de registro.
+ *
+ * @param loginScreenVM ViewModel que maneja la lógica de inicio de sesión y registro.
+ * @param text Texto del mensaje de alerta.
+ * @param caso Caso o tipo de alerta.
+ */
 @Composable
 fun LlamadaShowAlert(loginScreenVM: LoginRegisterVM, text: String, caso: String) {
     if (loginScreenVM.showAlert) {

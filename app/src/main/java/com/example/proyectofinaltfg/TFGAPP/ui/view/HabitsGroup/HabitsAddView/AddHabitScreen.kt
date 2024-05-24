@@ -19,7 +19,12 @@ import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
-
+/**
+ * Pantalla para agregar un nuevo hábito.
+ *
+ * @param navController El controlador de navegación de Jetpack Compose.
+ * @param addHabitVM El ViewModel que gestiona el proceso de adición de hábitos.
+ */
 @Composable
 fun AddHabitScreen(navController: NavController, addHabitVM: AddHabitVM) {
     BackHandler {

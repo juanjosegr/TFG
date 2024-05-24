@@ -19,7 +19,12 @@ import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
 import com.example.proyectofinaltfg.arriba.Arriba
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
-
+/**
+ * Pantalla para actualizar una nota en el diario.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param updateNoteVM El ViewModel para actualizar notas.
+ */
 @Composable
 fun DiaryUpdateScreen(navController: NavController, updateNoteVM: UpdateNoteVM) {
     BackHandler {

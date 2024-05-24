@@ -26,6 +26,11 @@ import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.agenadatop.AgenadaTop
 
+/**
+ * Pantalla principal de la aplicación que muestra el menú principal y permite navegar a diferentes secciones.
+ *
+ * @param navController Controlador de navegación para manejar las transiciones entre pantallas.
+ */
 @Composable
 fun PrincipalMenuScreen(
     navController: NavController
@@ -96,6 +101,4 @@ fun PrincipalMenuScreen(
             )
         }
     }
-
-
 }

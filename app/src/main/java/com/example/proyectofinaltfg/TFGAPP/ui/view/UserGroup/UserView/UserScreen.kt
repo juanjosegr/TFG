@@ -20,7 +20,12 @@ import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.UserProfileVM
 import com.example.proyectofinaltfg.menuabajovariant3.MenuAbajoVariant3
 import com.example.proyectofinaltfg.usertop.UserTop
-
+/**
+ * Pantalla de perfil de usuario.
+ *
+ * @param navController Controlador de navegación de Jetpack Compose.
+ * @param userProfileVM ViewModel que contiene los datos del perfil de usuario.
+ */
 @Composable
 fun UserScreen(
     navController: NavController,

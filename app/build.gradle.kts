@@ -66,8 +66,6 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.firebase.storage.ktx)
 
-    testImplementation(libs.junit)
-
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -110,4 +108,23 @@ dependencies {
     implementation (libs.converter.gson)
     implementation (libs.kotlinx.coroutines.core)
     implementation (libs.kotlinx.coroutines.android)
+
+    // Dependencias para pruebas de UI Compose
+    testImplementation (libs.mockito.core)
+    androidTestImplementation (libs.ui.test.junit4)
+    debugImplementation (libs.ui.tooling)
+    debugImplementation (libs.ui.test.manifest)
+    testImplementation (libs.androidx.core.testing)
+    implementation(libs.androidx.runner)
+    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.mockk)
+    testImplementation (libs.mockk.mockk)
+    testImplementation (libs.mockk.v1120)
+
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation (libs.androidx.core.testing.v210)
+    androidTestImplementation(libs.androidx.junit.v112)
+    androidTestImplementation (libs.androidx.espresso.core.v330)
+
 }

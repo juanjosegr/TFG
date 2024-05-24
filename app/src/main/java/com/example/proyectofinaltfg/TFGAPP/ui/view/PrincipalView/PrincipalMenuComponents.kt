@@ -32,7 +32,16 @@ import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerArrangement
 import com.google.relay.compose.RelayContainerScope
 
-
+/**
+ * Muestra un grupo de elementos en una disposición de columnas.
+ *
+ * @param modifier Modificador para aplicar a la disposición de columnas.
+ * @param onGroupAleatory Acción a realizar cuando se selecciona el grupo "Aleatorio".
+ * @param onGroupTraining Acción a realizar cuando se selecciona el grupo "Entrenamiento".
+ * @param onGroupCalendary Acción a realizar cuando se selecciona el grupo "Calendario".
+ * @param onGroupHabits Acción a realizar cuando se selecciona el grupo "Hábitos".
+ * @param onGroupDiary Acción a realizar cuando se selecciona el grupo "Diario".
+ */
 @Composable
 fun Agrupadoss(
     modifier: Modifier = Modifier,
@@ -191,7 +200,13 @@ fun Agrupadoss(
     }
 }
 
-
+/**
+ * Muestra el menú inferior con variantes.
+ *
+ * @param modifier Modificador para aplicar al menú inferior.
+ * @param onGoHome2 Acción a realizar cuando se selecciona la opción "Inicio".
+ * @param onUserGo2 Acción a realizar cuando se selecciona la opción "Usuario".
+ */
 @Composable
 fun MenuAbajoaVariant2(
     modifier: Modifier = Modifier,
@@ -204,7 +219,12 @@ fun MenuAbajoaVariant2(
         User(onUserGo2 = onUserGo2)
     }
 }
-
+/**
+ * Nivel superior de la agrupación de elementos.
+ *
+ * @param modifier Modificador para aplicar al nivel superior.
+ * @param content Contenido de la agrupación.
+ */
 @Composable
 fun TopeLevel(
     modifier: Modifier = Modifier,

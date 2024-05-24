@@ -24,7 +24,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,16 +39,23 @@ import com.example.proyectofinaltfg.arribaaleatorio.ArribaAleatorio
 import com.example.proyectofinaltfg.dislike.Dislike
 import com.example.proyectofinaltfg.menuabajoaleatorio.MenuAbajoAleatorio
 import com.example.proyectofinaltfg.reload.Reload
-import com.google.relay.compose.BoxScopeInstanceImpl.align
-
+/**
+ * Composable que representa la pantalla de "Me gusta" de la API, donde se muestran imágenes de gatos y frases favoritas.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param apiVM El ViewModel que gestiona las operaciones relacionadas con la API.
+ */
 @Composable
 fun ApiLikeScreen(
     navController: NavController,
     apiVM: ApiVM
 ) {
+    // Recolecta el estado de los gatos y frases marcados como favoritos
     val likedCatsAndPhrases by apiVM.getLikedCatsAndPhrases().collectAsState(emptyList())
+    // Estado para el índice actual
     val currentIndex = remember { mutableStateOf(0) }
 
+    // Maneja la acción del botón de retroceso
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
     }
@@ -71,8 +77,11 @@ fun ApiLikeScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                // Verifica si hay gatos y frases guardados como favoritos
                 if (likedCatsAndPhrases.isNotEmpty()) {
+                    // Obtiene el gato y la frase actuales
                     val (currentCat, currentPhrase) = likedCatsAndPhrases[currentIndex.value]
+                    // Muestra la imagen del gato
                     Image(
                         painter = rememberImagePainter(data = currentCat.url),
                         contentDescription = "Cat Image",
@@ -83,7 +92,7 @@ fun ApiLikeScreen(
                             .background(Color.LightGray)
                     )
 
-                    // Mostrar la cita
+                    // Muestra la cita
                     Column(
                         modifier = Modifier.padding(16.dp)
                     ) {
@@ -112,7 +121,8 @@ fun ApiLikeScreen(
                     Reload(
                         onReload = {
                             if (likedCatsAndPhrases.isNotEmpty()) {
-                                currentIndex.value = (currentIndex.value + 1) % likedCatsAndPhrases.size
+                                currentIndex.value =
+                                    (currentIndex.value + 1) % likedCatsAndPhrases.size
                             }
                         }
                     )
@@ -133,6 +143,7 @@ fun ApiLikeScreen(
         }
     }
 
+    // Diálogo de confirmación para eliminar un gato
     if (apiVM.deleteConfirmationDialog) {
         AlertDialog(
             onDismissRequest = {
@@ -163,6 +174,7 @@ fun ApiLikeScreen(
         )
     }
 
+    // Alerta de éxito al eliminar un gato
     if (apiVM.showAlertLike) {
         AlertDialog(
             onDismissRequest = {

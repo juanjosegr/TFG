@@ -23,7 +23,12 @@ import androidx.navigation.NavController
 import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.LoginRegisterVM
 import com.example.proyectofinaltfg.arriba.Arriba
-
+/**
+ * Pantalla de inicio de sesión que permite a los usuarios ingresar a la aplicación.
+ *
+ * @param navController Controlador de navegación para la navegación entre destinos.
+ * @param loginScreenVM ViewModel que maneja la lógica de inicio de sesión y registro.
+ */
 @Composable
 fun LoginScreen(navController: NavController, loginScreenVM: LoginRegisterVM) {
     var showExitDialog by remember { mutableStateOf(false) }

@@ -41,7 +41,16 @@ import com.example.proyectofinaltfg.grupologin.Rectangle6
 import com.example.proyectofinaltfg.grupologin.Registrate
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
-
+/**
+ * Componente composable que muestra el formulario de inicio de sesión y registro.
+ *
+ * @param modifier Modificador para personalizar la apariencia y el diseño del componente.
+ * @param onBtnLogin Acción a realizar cuando se presiona el botón de inicio de sesión.
+ * @param onRegistedTap Acción a realizar cuando se presiona el botón de registro.
+ * @param loginScreenVM ViewModel para manejar la lógica de inicio de sesión y registro.
+ * @param passwordVisible Estado mutable para controlar la visibilidad de la contraseña.
+ * @param recordarUsuario Estado mutable para controlar si se debe recordar el usuario.
+ */
 @Composable
 fun GrupoLoginNuevo(
     modifier: Modifier = Modifier,
@@ -59,9 +68,11 @@ fun GrupoLoginNuevo(
         }
     }
 
+    // Transformación visual para ocultar o mostrar la contraseña
     val visualTranformaction = if (passwordVisible.value)
         VisualTransformation.None
     else PasswordVisualTransformation()
+
     TopeLevel(modifier = modifier) {
         Conectar()
         Frame2 {
@@ -153,6 +164,13 @@ fun GrupoLoginNuevo(
 }
 
 
+/**
+ * Muestra un diálogo de alerta si showAlert es verdadero en el ViewModel.
+ *
+ * @param loginScreenVM ViewModel que maneja la lógica del diálogo de alerta.
+ * @param text Texto a mostrar en el diálogo de alerta.
+ * @param caso Caso que describe el propósito del diálogo de alerta.
+ */
 @Composable
 fun LlamadaShowAler(loginScreenVM: LoginRegisterVM, text: String, caso: String) {
     if (loginScreenVM.showAlert) {
@@ -166,7 +184,12 @@ fun LlamadaShowAler(loginScreenVM: LoginRegisterVM, text: String, caso: String) 
     }
 }
 
-
+/**
+ * Layout de nivel superior para organizar los componentes en una fila.
+ *
+ * @param modifier Modificador para personalizar la apariencia y el diseño del contenedor.
+ * @param content Contenido que se colocará dentro del contenedor.
+ */
 @Composable
 fun TopeLevel(
     modifier: Modifier = Modifier,

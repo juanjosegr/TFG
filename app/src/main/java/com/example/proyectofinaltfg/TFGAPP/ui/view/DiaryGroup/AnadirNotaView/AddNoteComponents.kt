@@ -33,7 +33,11 @@ import com.example.proyectofinaltfg.TFGAPP.data.Model.NotaModel
 import com.example.proyectofinaltfg.TFGAPP.ui.view.GenericComponent.ShowAlert
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
 
-
+/**
+ * Composable que muestra los componentes para agregar una nueva nota.
+ *
+ * @param addNoteVM El ViewModel para agregar notas.
+ */
 @Composable
 fun AddNoteComponents(
     addNoteVM: AddNoteVM
@@ -104,6 +108,13 @@ fun AddNoteComponents(
     }
 }
 
+/**
+ * Composable que muestra una alerta según el estado del ViewModel de agregar notas.
+ *
+ * @param addNoteVM El ViewModel para agregar notas.
+ * @param text El texto a mostrar en la alerta.
+ * @param caso El caso de la alerta.
+ */
 @Composable
 fun LlamadaShowAler(AddNoteVM: AddNoteVM, text: String, caso: String) {
     if (AddNoteVM.showAlert) {

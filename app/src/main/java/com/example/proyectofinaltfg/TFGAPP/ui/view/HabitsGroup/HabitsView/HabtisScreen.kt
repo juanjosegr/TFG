@@ -23,7 +23,14 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsVM.H
 import com.example.proyectofinaltfg.arribahabitos.ArribaHabitos
 import com.example.proyectofinaltfg.hacerhecho.HacerHecho
 import com.example.proyectofinaltfg.menuabajodefault.MenuAbajoDefault
-
+/**
+ * Pantalla principal que muestra los hábitos disponibles y permite su gestión.
+ *
+ * @param navController El controlador de navegación de Jetpack Compose.
+ * @param habitScreenVM El ViewModel que gestiona los hábitos.
+ * @param updateHabitVM El ViewModel que gestiona la actualización de hábitos.
+ * @param dragDropViewModel El ViewModel que gestiona el arrastre y la soltura de los hábitos.
+ */
 @Composable
 fun HabtisScreen(
     navController: NavController,

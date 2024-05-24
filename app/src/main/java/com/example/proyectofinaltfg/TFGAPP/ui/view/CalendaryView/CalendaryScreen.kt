@@ -25,7 +25,11 @@ import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
+/**
+ * Composable que representa la pantalla del calendario.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CalendaryScreen(
@@ -34,8 +38,11 @@ fun CalendaryScreen(
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
     }
+    // Estado para el seleccionador de fecha
     val state = rememberDatePickerState()
+    // Obtiene la fecha seleccionada
     val selectedDate = state.selectedDateMillis?.let { Date(it) }
+    // Formateador de fecha
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -54,7 +61,9 @@ fun CalendaryScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                // Seleccionador de fecha
                 DatePicker(state = state)
+                // Botón para ir a la fecha seleccionada
                 Button(onClick = {
                     selectedDate?.let {
                         val formattedDate = formatter.format(it)

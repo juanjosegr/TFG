@@ -17,7 +17,13 @@ import androidx.compose.ui.unit.dp
 import com.example.proyectofinaltfg.TFGAPP.ui.view.GenericComponent.ShowAlert
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.HabitsGruopVM.HabitsAddVM.AddHabitVM
 
-
+/**
+ * Muestra un cuadro de diálogo de alerta basado en el estado del ViewModel.
+ *
+ * @param addHabitVM El ViewModel que gestiona el proceso de adición de hábitos.
+ * @param text El texto que se muestra en el cuadro de diálogo de alerta.
+ * @param caso El título del cuadro de diálogo de alerta.
+ */
 @Composable
 fun LlamadaShowAler(addHabitVM: AddHabitVM, text: String, caso: String) {
     if (addHabitVM.showAlert) {
@@ -31,6 +37,11 @@ fun LlamadaShowAler(addHabitVM: AddHabitVM, text: String, caso: String) {
     }
 }
 
+/**
+ * Composable para mostrar los componentes para agregar un nuevo hábito.
+ *
+ * @param addHabitVM El ViewModel que gestiona el proceso de adición de hábitos.
+ */
 @Composable
 fun AddHabitComponents(
     addHabitVM: AddHabitVM

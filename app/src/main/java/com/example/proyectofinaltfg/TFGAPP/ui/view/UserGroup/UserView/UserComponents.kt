@@ -39,7 +39,11 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.UserVM.UserProfileVM
 
-
+/**
+ * Pantalla de perfil de usuario sin opción de edición.
+ *
+ * @param userProfileVM ViewModel que contiene los datos del perfil de usuario.
+ */
 @Composable
 fun ProfileScreenNoEdit(userProfileVM: UserProfileVM) {
     Column(
@@ -73,6 +77,7 @@ fun ProfileScreenNoEdit(userProfileVM: UserProfileVM) {
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
+        // Campos de texto de perfil (no editables)
         ProfileTextField(label = "Nombre", value = userProfileVM.name)
         Spacer(modifier = Modifier.height(8.dp))
         ProfileTextField(label = "Nombre Usuario", value = userProfileVM.userName)
@@ -81,7 +86,12 @@ fun ProfileScreenNoEdit(userProfileVM: UserProfileVM) {
         Spacer(modifier = Modifier.height(8.dp))
     }
 }
-
+/**
+ * Componente para mostrar un campo de texto de perfil.
+ *
+ * @param label Etiqueta del campo.
+ * @param value Valor del campo.
+ */
 @Composable
 fun ProfileTextField(label: String, value: String) {
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -103,7 +113,11 @@ fun ProfileTextField(label: String, value: String) {
     }
 }
 
-
+/**
+ * Pantalla de perfil de usuario con opción de edición.
+ *
+ * @param userProfileVM ViewModel que contiene los datos del perfil de usuario.
+ */
 @Composable
 fun ProfileScreen(userProfileVM: UserProfileVM) {
     val imageUri = rememberSaveable { mutableStateOf<Uri?>(null) }

@@ -15,7 +15,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Calendar
 import java.util.UUID
-
+/**
+ * ViewModel encargado de gestionar la creación de hábitos.
+ */
 class AddHabitVM : ViewModel() {
 
     private val auth: FirebaseAuth = Firebase.auth
@@ -29,12 +31,17 @@ class AddHabitVM : ViewModel() {
     var casoErrorAcierto by mutableStateOf("")
         private set
 
-
+    /**
+     * Función para cambiar el texto del hábito.
+     * @param text El nuevo texto del hábito.
+     */
     fun changeTextHabit(text: String) {
         this.textHabit = text
         Log.d("Texto", text)
     }
-
+    /**
+     * Función para guardar un nuevo hábito en Firestore.
+     */
     fun saveNewHabit() {
         val email = auth.currentUser?.email
 
@@ -72,11 +79,15 @@ class AddHabitVM : ViewModel() {
             }
         }
     }
-
+    /**
+     * Función para resetear la información del hábito.
+     */
     private fun resetInfoNote() {
         textHabit = ""
     }
-
+    /**
+     * Función para cerrar la alerta.
+     */
     fun closedShowAlert() {
         showAlert = false
     }

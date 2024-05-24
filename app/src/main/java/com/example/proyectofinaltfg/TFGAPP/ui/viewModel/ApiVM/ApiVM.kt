@@ -19,18 +19,27 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-
+/**
+ * Clase ViewModel encargada de gestionar las llamadas a la API relacionadas con gatos y frases, así como las interacciones con Firestore
+ * para guardar, recuperar y eliminar gatos y frases marcados como favoritos.
+ */
 class ApiVM : ViewModel() {
 
+    // Estado mutable para almacenar la lista de respuestas de gatos
     private val _catList = mutableStateOf<List<CatResponse>>(emptyList())
     val catList: State<List<CatResponse>> = _catList
 
+    // Estado mutable para almacenar la lista de respuestas de frases
     private val _PharsesList = mutableStateOf<List<PharsesResponse>>(emptyList())
     val pharsesList: State<List<PharsesResponse>> = _PharsesList
 
+    // Servicio Retrofit para obtener datos de gatos
     private val catService = RetrofitServiceFactory.makeCatService()
+    // Servicio Retrofit para obtener datos de frases
     private val phrarsesService = RetrofitServiceFactory.makePharsesService()
+    // Instancia de Firestore para interactuar con la base de datos
     private val firestore = FirebaseFirestore.getInstance()
+    // Instancia de autenticación de Firebase para autenticación de usuarios
     private val auth = FirebaseAuth.getInstance()
 
     var showAlertScreen by mutableStateOf(false)
@@ -39,17 +48,24 @@ class ApiVM : ViewModel() {
     var showAlertLike by mutableStateOf(false)
         private set
 
+    /** Método para mostrar u ocultar la alerta de pantalla
+     */
     fun trueShowAlertScreen() {
         showAlertScreen = !showAlertScreen
     }
 
+    /**
+     *  Método para mostrar u ocultar la alerta de "me gusta"
+     */
     fun LikeShowAlertScreen() {
         showAlertLike = !showAlertLike
     }
 
     var deleteConfirmationDialog by mutableStateOf(false)
         private set
-
+    /**
+     * Método para mostrar u ocultar el diálogo de confirmación de eliminación
+     */
     fun showDeleteConfirmationDialog() {
         deleteConfirmationDialog = !deleteConfirmationDialog
     }
@@ -60,6 +76,9 @@ class ApiVM : ViewModel() {
         fetchPharses()
     }
 
+    /**
+     * Método privado para obtener los datos de gatos de la API
+     */
     private fun fetchCats() {
         viewModelScope.launch {
             try {
@@ -71,6 +90,9 @@ class ApiVM : ViewModel() {
         }
     }
 
+    /**
+      * Método privado para obtener los datos de frases de la API
+     */
     private fun fetchPharses() {
         viewModelScope.launch {
             try {
@@ -83,11 +105,17 @@ class ApiVM : ViewModel() {
         }
     }
 
+    /**
+     *  Método para recargar los datos de gatos y frases
+     */
     fun reloadCats() {
         fetchCats()
         fetchPharses()
     }
 
+    /**
+     * Método para guardar un gato marcado como favorito en Firestore
+     */
     fun saveCatToFirestore(cat: CatResponse, phrase: PharsesResponse) {
         val userEmail = auth.currentUser?.email
         viewModelScope.launch {
@@ -108,6 +136,10 @@ class ApiVM : ViewModel() {
         }
     }
 
+    /**
+     * Método para obtener los gatos y frases marcados como favoritos
+     *
+     */
     fun getLikedCatsAndPhrases(): Flow<List<Pair<CatResponse, PharsesResponse>>> = flow {
         val userEmail = auth.currentUser?.email
         if (userEmail != null) {
@@ -132,7 +164,10 @@ class ApiVM : ViewModel() {
         }
     }.flowOn(Dispatchers.IO)
 
-
+    /**
+     * Método para eliminar un gato de Firestore
+     *
+     */
     fun deleteCatFromFirestore(cat: CatResponse) {
         val userEmail = auth.currentUser?.email
         viewModelScope.launch {

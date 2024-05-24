@@ -21,7 +21,13 @@ import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiarioVM.DiaryScreenVM
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
 import com.example.proyectofinaltfg.menuabajodefault.MenuAbajoDefault
-
+/**
+ * Composable que representa la pantalla principal del diario.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param diaryScreenVM El ViewModel del diario.
+ * @param updateNoteVM El ViewModel para actualizar notas.
+ */
 @Composable
 fun DiarioPrincipalScreen(
     navController: NavController,

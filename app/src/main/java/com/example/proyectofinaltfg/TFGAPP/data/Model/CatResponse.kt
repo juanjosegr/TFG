@@ -1,7 +1,17 @@
 package com.example.proyectofinaltfg.TFGAPP.data.Model
 
 import com.google.firebase.firestore.PropertyName
-
+/**
+ * Clase de datos que representa la respuesta de una solicitud de información sobre gatos.
+ * Esta clase se utiliza para mapear los datos recibidos desde una API,
+ * a objetos Kotlin que puedan ser utilizados en la lógica de la aplicación.
+ *
+ * @param id El identificador único del gato.
+ * @param url La URL de la imagen del gato.
+ * @param width El ancho de la imagen del gato.
+ * @param height La altura de la imagen del gato.
+ * @param userEmail El correo electrónico del usuario asociado a firebase.
+ */
 data class CatResponse(
     @get:PropertyName("id")
     @set:PropertyName("id")

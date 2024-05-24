@@ -21,7 +21,12 @@ import com.example.proyectofinaltfg.Navigation.Routes.Routes
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.AddNoteVM.AddNoteVM
 import com.example.proyectofinaltfg.arriba.Arriba
 import com.example.proyectofinaltfg.menuabajovariant2.MenuAbajoVariant2
-
+/**
+ * Composable que representa la pantalla de agregar una nueva nota.
+ *
+ * @param addNoteVM El ViewModel para agregar notas.
+ * @param navController El NavController para la navegación entre pantallas.
+ */
 @Composable
 fun AddNoteScreen(addNoteVM: AddNoteVM, navController: NavController) {
     BackHandler {

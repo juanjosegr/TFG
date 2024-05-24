@@ -36,7 +36,12 @@ import com.example.proyectofinaltfg.ui.theme.LightGreen
 import com.example.proyectofinaltfg.ui.theme.RedOrange
 import com.example.proyectofinaltfg.ui.theme.RedPink
 import com.example.proyectofinaltfg.ui.theme.Violet
-
+/**
+ * Composable que muestra la parte superior de la pantalla del diario, incluyendo la barra de búsqueda.
+ *
+ * @param modifier El modificador para personalizar la apariencia del componente.
+ * @param diaryScreenVM El ViewModel del diario.
+ */
 @Composable
 fun ArribaDiarioNuevo(
     modifier: Modifier = Modifier,
@@ -66,7 +71,13 @@ fun ArribaDiarioNuevo(
         }
     }
 }
-
+/**
+ * Composable que muestra las columnas de notas en la pantalla del diario.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param diaryScreenVM El ViewModel del diario.
+ * @param updateNoteVM El ViewModel para actualizar notas.
+ */
 @Composable
 fun ColumnasSeparadas(
     navController: NavController,
@@ -74,13 +85,17 @@ fun ColumnasSeparadas(
     updateNoteVM: UpdateNoteVM
 ) {
 
+    // Carga las notas cuando se lanza el efecto
     LaunchedEffect(Unit) {
         diaryScreenVM.fetchNotes()
     }
 
+    // Recupera las notas del ViewModel como un estado
     val notes by diaryScreenVM.notesData.collectAsState()
     Log.d("Compose,ColumnasSeparadas", "Number of notes: ${notes.size}")
+
     if (notes.isNotEmpty()) {
+        // Divide las notas en dos columnas
         val halfSize = (notes.size + 1) / 2
         val leftColumnNotes = notes.take(halfSize)
         val rightColumnNotes = notes.drop(halfSize)

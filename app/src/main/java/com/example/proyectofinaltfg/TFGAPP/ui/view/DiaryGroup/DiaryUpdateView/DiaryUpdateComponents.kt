@@ -36,11 +36,18 @@ import com.example.proyectofinaltfg.TFGAPP.data.Model.NotaModel
 import com.example.proyectofinaltfg.TFGAPP.ui.view.GenericComponent.ShowAlert
 import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.DiaryPackageVM.DiaryUpdateVM.UpdateNoteVM
 
+/**
+ * Composable que muestra los componentes para actualizar una nota.
+ *
+ * @param updateNoteVM El ViewModel para actualizar notas.
+ */
 @Composable
 fun UpdateNoteComponent(
     updateNoteVM: UpdateNoteVM
 ) {
+    // Estado para controlar la expansión del menú desplegable de colores
     var expanded by remember { mutableStateOf(false) }
+    // Estado para almacenar el nombre del color seleccionado
     var selectedColorName by remember { mutableStateOf("Elegir color") }
 
     Column(modifier = Modifier.padding(16.dp)) {
@@ -117,7 +124,14 @@ fun UpdateNoteComponent(
         }
     }
 }
-
+/**
+ * Composable para mostrar un cuadro de diálogo de alerta en función de las acciones realizadas en la actualización de la nota.
+ *
+ * @param navController El NavController para la navegación entre pantallas.
+ * @param updateNoteVM El ViewModel para actualizar notas.
+ * @param text El texto que se mostrará en el cuadro de diálogo de alerta.
+ * @param caso El caso de la acción que desencadena el cuadro de diálogo de alerta.
+ */
 @Composable
 fun LlamadaShowAler(
     navController: NavController,

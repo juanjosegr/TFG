@@ -15,7 +15,9 @@ import kotlinx.coroutines.flow.StateFlow
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
+/**
+ * ViewModel encargado de gestionar la pantalla del diario.
+ */
 class DiaryScreenVM : ViewModel() {
 
     private val auth: FirebaseAuth = Firebase.auth
@@ -23,7 +25,9 @@ class DiaryScreenVM : ViewModel() {
 
     private val _notesData = MutableStateFlow<List<NotaModel>>(emptyList())
     val notesData: StateFlow<List<NotaModel>> = _notesData
-
+    /**
+     * Función para obtener las notas del usuario actual desde Firestore.
+     */
     fun fetchNotes() {
         val email = auth.currentUser?.email
         firestore.collection("Notes")
@@ -56,7 +60,10 @@ class DiaryScreenVM : ViewModel() {
                 Log.d("Firebase", "Notes fetched successfully: ${searchNote.size} notes")
             }
     }
-
+    /**
+     * Función para obtener las notas del usuario actual para una fecha específica desde Firestore.
+     * @param date La fecha para la cual se desean recuperar las notas.
+     */
     fun fetchNotesDate(date: String) {
         val email = auth.currentUser?.email
 
@@ -95,7 +102,10 @@ class DiaryScreenVM : ViewModel() {
 
     var search by mutableStateOf("")
         private set
-
+    /**
+     * Función para cambiar el término de búsqueda.
+     * @param search El término de búsqueda a establecer.
+     */
     fun changeSearch(search: String) {
         this.search = search
     }

@@ -34,7 +34,14 @@ import com.example.proyectofinaltfg.grupoactualizarhabito.TopLevel
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.tappable
-
+/**
+ * Muestra una alerta en la pantalla cuando se produce un evento específico en la gestión de hábitos.
+ *
+ * @param navController El controlador de navegación de Jetpack Compose.
+ * @param updateHabitsVM El ViewModel que gestiona la actualización de hábitos.
+ * @param text El texto que se mostrará en la alerta.
+ * @param caso El caso específico que desencadenó la alerta.
+ */
 @Composable
 fun LlamadaShowAler(
     navController: NavController,
@@ -55,7 +62,11 @@ fun LlamadaShowAler(
         )
     }
 }
-
+/**
+ * Componente para mostrar y actualizar un hábito en la pantalla.
+ *
+ * @param updateHabitsVM El ViewModel que gestiona la actualización de hábitos.
+ */
 @Composable
 fun ShowHabitComponent(
     updateHabitsVM: UpdateHabitVM
