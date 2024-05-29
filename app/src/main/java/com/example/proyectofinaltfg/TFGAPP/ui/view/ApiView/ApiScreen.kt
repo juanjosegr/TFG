@@ -1,5 +1,6 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.view.ApiView
 
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -19,7 +20,12 @@ import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,6 +41,11 @@ import com.example.proyectofinaltfg.TFGAPP.ui.viewModel.ApiVM.ApiVM
 import com.example.proyectofinaltfg.arribaaleatorio.ArribaAleatorio
 import com.example.proyectofinaltfg.likereload.LikeReload
 import com.example.proyectofinaltfg.menuabajovariant5.MenuAbajoVariant5
+import com.google.mlkit.common.model.DownloadConditions
+import com.google.mlkit.nl.translate.TranslateLanguage
+import com.google.mlkit.nl.translate.Translation
+import com.google.mlkit.nl.translate.TranslatorOptions
+
 /**
  * Composable que representa la pantalla de la API, donde se muestran imágenes de gatos y frases aleatorias.
  *
@@ -54,6 +65,43 @@ fun ApiScreen(
         navController.navigate(Routes.principalMenuScreen.routes)
     }
 
+    // Configuración del traductor
+    val options = TranslatorOptions.Builder()
+        .setSourceLanguage(TranslateLanguage.ENGLISH)
+        .setTargetLanguage(TranslateLanguage.SPANISH)
+        .build()
+    val englishSpanishTranslator = Translation.getClient(options)
+    val conditions = DownloadConditions.Builder()
+        .requireWifi()
+        .build()
+
+    var translatedText by remember { mutableStateOf<String?>(null) }
+
+    DisposableEffect(Unit) {
+        englishSpanishTranslator.downloadModelIfNeeded(conditions)
+            .addOnSuccessListener {
+                // Model downloaded successfully
+            }
+            .addOnFailureListener { exception ->
+                // Handle the error
+                Log.e("MLKit", "Error downloading model: ${exception.message}")
+            }
+        onDispose {
+            englishSpanishTranslator.close()
+        }
+    }
+
+    fun translateText(text: String) {
+        englishSpanishTranslator.translate(text)
+            .addOnSuccessListener { translation ->
+                translatedText = translation
+            }
+            .addOnFailureListener { exception ->
+                // Handle the error
+                Log.e("MLKit", "Error translating text: ${exception.message}")
+            }
+    }
+    
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -88,6 +136,11 @@ fun ApiScreen(
                             .background(Color.LightGray)
                     )
                     // Muestra la cita
+
+                    LaunchedEffect(phrase.quote) {
+                        translateText(phrase.quote)
+                    }
+
                     Column(
                         modifier = Modifier.padding(16.dp)
                     ) {
@@ -103,6 +156,14 @@ fun ApiScreen(
                             style = TextStyle(fontWeight = FontWeight.Bold),
                             modifier = Modifier.fillMaxWidth()
                         )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        translatedText?.let { translated ->
+                            Text(
+                                text = translated,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
                     }
                     LikeReload(
                         likeSave = {

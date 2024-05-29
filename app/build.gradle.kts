@@ -127,4 +127,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit.v112)
     androidTestImplementation (libs.androidx.espresso.core.v330)
 
+    // Traducción
+    implementation (libs.translate)
+
 }
