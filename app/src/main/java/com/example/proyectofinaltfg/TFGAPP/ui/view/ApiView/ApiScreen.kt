@@ -5,6 +5,7 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -60,22 +61,17 @@ fun ApiScreen(
     // Obtiene la lista de gatos y frases del ViewModel
     val cats by viewModel.catList
     val pharses by viewModel.pharsesList
+    var translatedText by remember { mutableStateOf<String?>(null) }
 
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
     }
 
     // Configuración del traductor
-    val options = TranslatorOptions.Builder()
-        .setSourceLanguage(TranslateLanguage.ENGLISH)
-        .setTargetLanguage(TranslateLanguage.SPANISH)
-        .build()
+    val options = TranslatorOptions.Builder().setSourceLanguage(TranslateLanguage.ENGLISH).setTargetLanguage(TranslateLanguage.SPANISH).build()
     val englishSpanishTranslator = Translation.getClient(options)
-    val conditions = DownloadConditions.Builder()
-        .requireWifi()
-        .build()
+    val conditions = DownloadConditions.Builder().requireWifi().build()
 
-    var translatedText by remember { mutableStateOf<String?>(null) }
 
     DisposableEffect(Unit) {
         englishSpanishTranslator.downloadModelIfNeeded(conditions)
@@ -101,7 +97,7 @@ fun ApiScreen(
                 Log.e("MLKit", "Error translating text: ${exception.message}")
             }
     }
-    
+
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -141,15 +137,39 @@ fun ApiScreen(
                         translateText(phrase.quote)
                     }
 
+                    // Muestra el texto original o traducido alternativamente
+                    var showOriginalText by remember { mutableStateOf(true) }
+
+                    val originalText = phrase.quote
+                    val displayText = if (showOriginalText) originalText else translatedText ?: originalText
+
+                    // Muestra el texto original o traducido alternativamente
+                    val displayTextModifier = Modifier.clickable {
+                        showOriginalText = !showOriginalText
+                    }
+                    Text(
+                        text = displayText,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .then(displayTextModifier)
+                    )
+
+                    // Muestra el botón "Traducir texto" si hay una traducción disponible
+                    if (translatedText != null) {
+                        Text(
+                            text = if (showOriginalText) "Traducir texto" else "Mostrar original",
+                            textAlign = TextAlign.Center,
+                            color = Color.Blue,
+                            modifier = Modifier.clickable {
+                                showOriginalText = !showOriginalText
+                            }
+                        )
+                    }
+
                     Column(
                         modifier = Modifier.padding(16.dp)
                     ) {
-                        Text(
-                            text = phrase.quote,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
                         Text(
                             text = phrase.author,
                             textAlign = TextAlign.Center,
@@ -157,13 +177,6 @@ fun ApiScreen(
                             modifier = Modifier.fillMaxWidth()
                         )
                         Spacer(modifier = Modifier.height(8.dp))
-                        translatedText?.let { translated ->
-                            Text(
-                                text = translated,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.fillMaxWidth()
-                            )
-                        }
                     }
                     LikeReload(
                         likeSave = {
