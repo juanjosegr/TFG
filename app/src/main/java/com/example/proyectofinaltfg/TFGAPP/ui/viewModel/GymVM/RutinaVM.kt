@@ -1,7 +1,10 @@
 package com.example.proyectofinaltfg.TFGAPP.ui.viewModel.GymVM
 
 import android.util.Log
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.proyectofinaltfg.TFGAPP.data.Model.Ejercicios
 import com.example.proyectofinaltfg.TFGAPP.data.Model.Rutinas
@@ -82,4 +85,12 @@ class RutinaVM : ViewModel() {
     fun seleccionarRutina(rutina: Rutinas) {
         _rutinaSeleccionada.value = rutina
     }
+
+    var showAlertScreen by mutableStateOf(false)
+        private set
+    fun trueShowAlertScreen() {
+        showAlertScreen = !showAlertScreen
+    }
+
+
 }

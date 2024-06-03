@@ -21,5 +21,6 @@ data class Rutinas(
 data class Ejercicios(
     val nombre: String = "",
     val descripcion: String = "",
-    val repeticiones: String = ""
+    val repeticiones: String = "",
+    val video: String = ""
 )
