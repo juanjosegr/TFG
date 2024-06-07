@@ -159,7 +159,7 @@ fun ColumnasSeparadas(
             }
         }
     } else {
-        Text("No hay notas disponibles.")
+        Text("No hay hábitos disponibles.")
     }
 }
 

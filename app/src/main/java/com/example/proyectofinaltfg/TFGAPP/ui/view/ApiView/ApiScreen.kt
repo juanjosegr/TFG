@@ -61,7 +61,6 @@ fun ApiScreen(
     // Obtiene la lista de gatos y frases del ViewModel
     val cats by viewModel.catList
     val pharses by viewModel.pharsesList
-    var translatedText by remember { mutableStateOf<String?>(null) }
 
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
@@ -71,16 +70,15 @@ fun ApiScreen(
     val options = TranslatorOptions.Builder().setSourceLanguage(TranslateLanguage.ENGLISH).setTargetLanguage(TranslateLanguage.SPANISH).build()
     val englishSpanishTranslator = Translation.getClient(options)
     val conditions = DownloadConditions.Builder().requireWifi().build()
-
+    var translatedText by remember { mutableStateOf<String?>(null) }
 
     DisposableEffect(Unit) {
         englishSpanishTranslator.downloadModelIfNeeded(conditions)
             .addOnSuccessListener {
-                // Model downloaded successfully
+
             }
             .addOnFailureListener { exception ->
-                // Handle the error
-                Log.e("MLKit", "Error downloading model: ${exception.message}")
+                Log.e("MLKit", "Error descarga: ${exception.message}")
             }
         onDispose {
             englishSpanishTranslator.close()
@@ -93,8 +91,7 @@ fun ApiScreen(
                 translatedText = translation
             }
             .addOnFailureListener { exception ->
-                // Handle the error
-                Log.e("MLKit", "Error translating text: ${exception.message}")
+                Log.e("MLKit", "Error traduccion texto: ${exception.message}")
             }
     }
 

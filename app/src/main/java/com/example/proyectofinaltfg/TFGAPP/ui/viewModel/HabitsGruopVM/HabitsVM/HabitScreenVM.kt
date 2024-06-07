@@ -90,9 +90,26 @@ class HabitScreenVM : ViewModel() {
      * @param newStatus El nuevo estado del hábito (por hacer/hecho).
      */
     fun updateHabitStatus(habitId: String, newStatus: String) {
-        firestore.collection("Habits").document(habitId)
+        val habitRef = firestore.collection("Habits").document(habitId)
+        habitRef
             .update("hecha_hacer", newStatus)
             .addOnSuccessListener {
+                if (newStatus == "hecha") {
+                    val currentDate = Date()
+                    val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                    val formattedDate = dateFormat.format(currentDate)
+                    val completionData = hashMapOf(
+                        "completionDate" to formattedDate
+                    )
+                    habitRef.collection("CompletionDates")
+                        .add(completionData)
+                        .addOnSuccessListener {
+                            Log.d("Firebase", "Completion date added successfully")
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e("Firebase", "Error adding completion date: $e")
+                        }
+                }
                 fetchHabits()
             }
             .addOnFailureListener { e ->
