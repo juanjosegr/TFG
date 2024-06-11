@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -34,8 +35,14 @@ fun UserScreen(
     BackHandler {
         navController.navigate(Routes.principalMenuScreen.routes)
     }
-    LaunchedEffect(Unit) {
+    LaunchedEffect(key1 = true) {
         userProfileVM.fetchUser()
+    }
+
+    DisposableEffect(key1 = true) {
+        onDispose {
+            userProfileVM.fetchUser()
+        }
     }
 
     Box(modifier = Modifier.fillMaxSize()) {

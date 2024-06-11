@@ -64,7 +64,7 @@ fun AddNoteScreen(addNoteVM: AddNoteVM, navController: NavController) {
                 .offset(y = (-46).dp)
         ) {
             MenuAbajoVariant2(
-                onGoHome2 = { navController.navigate(Routes.diarioScreen.routes) },
+                onGoHome2 = { navController.navigate(Routes.principalMenuScreen.routes) },
                 onUserGo2 = { navController.navigate(Routes.userScren.routes) })
         }
     }

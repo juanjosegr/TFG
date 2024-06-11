@@ -169,7 +169,6 @@ class UserProfileVM : ViewModel() {
                             uploadPhotoToStorage(uri)
                         }
                         showUpdateSuccessAlert = true
-
                     }
                     .addOnFailureListener { e ->
                         Log.e("updateUser UserProfileVM", "Error updating user: $e")

@@ -58,7 +58,7 @@ fun AddHabitScreen(navController: NavController, addHabitVM: AddHabitVM) {
                 .offset(y = (-46).dp)
         ) {
             MenuAbajoVariant2(
-                onGoHome2 = { navController.navigate(Routes.habtisScreen.routes) },
+                onGoHome2 = { navController.navigate(Routes.principalMenuScreen.routes) },
                 onUserGo2 = { navController.navigate(Routes.userScren.routes) })
         }
     }

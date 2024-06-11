@@ -125,7 +125,7 @@ fun CalendaryDestiny(
                 .offset(y = (-46).dp)
         ) {
             MenuAbajoVariant2(
-                onGoHome2 = { navController.navigate(Routes.calendaryScreen.routes) },
+                onGoHome2 = { navController.navigate(Routes.principalMenuScreen.routes) },
                 onUserGo2 = { navController.navigate(Routes.userScren.routes) }
             )
         }
