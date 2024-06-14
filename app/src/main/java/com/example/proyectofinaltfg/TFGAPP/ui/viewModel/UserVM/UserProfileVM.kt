@@ -146,6 +146,7 @@ class UserProfileVM : ViewModel() {
         }
     }
 
+
     /**
      * Actualiza los datos del usuario en Firestore.
      * @param name Nuevo nombre del usuario.
